@@ -2164,9 +2164,9 @@ function App() {
                   "class": "form-control",
                   id: "exampleFormControlSelect1",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                    children: "2017"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                     children: "2016"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                    children: "2017"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                     children: "2018"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
@@ -2206,7 +2206,7 @@ function App() {
                   type: "milage",
                   "class": "form-control",
                   id: "exampleFormControlInput1",
-                  placeholder: "CR-V"
+                  placeholder: "100,000"
                 })]
               })]
             })

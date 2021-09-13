@@ -19,8 +19,8 @@ function App() {
                                         class="form-control"
                                         id="exampleFormControlSelect1"
                                     >
-                                        <option>2017</option>
                                         <option>2016</option>
+                                        <option>2017</option>
                                         <option>2018</option>
                                         <option>2019</option>
                                         <option>2020</option>
@@ -56,7 +56,7 @@ function App() {
                                         type="milage"
                                         class="form-control"
                                         id="exampleFormControlInput1"
-                                        placeholder="CR-V"
+                                        placeholder="100,000"
                                     />
                                     </div>
                               
