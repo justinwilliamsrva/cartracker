@@ -12,11 +12,11 @@ function App() {
                         <div className="card-body">
                             <form>
                                 <div className="form-group">
-                                    <label for="exampleFormControlSelect1">
+                                    <label htmlFor="exampleFormControlSelect1">
                                         Year
                                     </label>
                                     <select
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleFormControlSelect1"
                                     >
                                         <option>2016</option>
@@ -27,39 +27,42 @@ function App() {
                                     </select>
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleFormControlInput1">
+                                    <label htmlFor="exampleFormControlInput1">
                                         Car Make
                                     </label>
                                     <input
                                         type="make"
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleFormControlInput1"
                                         placeholder="Honda"
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleFormControlInput1">
+                                    <label htmlFor="exampleFormControlInput1">
                                         Car Model
                                     </label>
                                     <input
                                         type="model"
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleFormControlInput1"
                                         placeholder="CR-V"
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="exampleFormControlInput1">
+                                    <label htmlFor="exampleFormControlInput1">
                                         Current Milage
                                     </label>
                                     <input
                                         type="milage"
-                                        class="form-control"
+                                        className="form-control"
                                         id="exampleFormControlInput1"
                                         placeholder="100,000"
                                     />
                                 </div>
-                                <button type="submit" class="btn btn-primary">
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                >
                                     Submit
                                 </button>
                             </form>

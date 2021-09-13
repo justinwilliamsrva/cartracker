@@ -2158,10 +2158,10 @@ function App() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                  "for": "exampleFormControlSelect1",
+                  htmlFor: "exampleFormControlSelect1",
                   children: "Year"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-                  "class": "form-control",
+                  className: "form-control",
                   id: "exampleFormControlSelect1",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                     children: "2016"
@@ -2178,39 +2178,39 @@ function App() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                  "for": "exampleFormControlInput1",
+                  htmlFor: "exampleFormControlInput1",
                   children: "Car Make"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                   type: "make",
-                  "class": "form-control",
+                  className: "form-control",
                   id: "exampleFormControlInput1",
                   placeholder: "Honda"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                  "for": "exampleFormControlInput1",
+                  htmlFor: "exampleFormControlInput1",
                   children: "Car Model"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                   type: "model",
-                  "class": "form-control",
+                  className: "form-control",
                   id: "exampleFormControlInput1",
                   placeholder: "CR-V"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                  "for": "exampleFormControlInput1",
+                  htmlFor: "exampleFormControlInput1",
                   children: "Current Milage"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                   type: "milage",
-                  "class": "form-control",
+                  className: "form-control",
                   id: "exampleFormControlInput1",
                   placeholder: "100,000"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 type: "submit",
-                "class": "btn btn-primary",
+                className: "btn btn-primary",
                 children: "Submit"
               })]
             })
