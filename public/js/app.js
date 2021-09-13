@@ -2160,6 +2160,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
+ // look at bottom of page to find useState for functional components
 
 
 
@@ -2176,10 +2177,10 @@ var App = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      year: "2016",
-      make: "Honda",
-      model: "CR-v",
-      milage: "100,000",
+      year: "",
+      make: "",
+      model: "",
+      milage: "",
       cars: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
@@ -2224,6 +2225,7 @@ var App = /*#__PURE__*/function (_Component) {
                       type: "number",
                       className: "form-control",
                       id: "exampleFormControlSelect1",
+                      required: true,
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
                         children: "2016"
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
@@ -2248,7 +2250,8 @@ var App = /*#__PURE__*/function (_Component) {
                       type: "text",
                       className: "form-control",
                       id: "exampleFormControlInput1",
-                      placeholder: "Honda"
+                      placeholder: "Honda",
+                      required: true
                     })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                     className: "form-group",
@@ -2262,7 +2265,8 @@ var App = /*#__PURE__*/function (_Component) {
                       type: "text",
                       className: "form-control",
                       id: "exampleFormControlInput1",
-                      placeholder: "CR-V"
+                      placeholder: "CR-V",
+                      required: true
                     })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                     className: "form-group",
@@ -2276,7 +2280,9 @@ var App = /*#__PURE__*/function (_Component) {
                       type: "number",
                       className: "form-control",
                       id: "exampleFormControlInput1",
-                      placeholder: "100,000"
+                      placeholder: "100,000",
+                      step: 10000,
+                      required: true
                     })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                     type: "submit",
@@ -2299,7 +2305,47 @@ var App = /*#__PURE__*/function (_Component) {
 
 if (document.getElementById("root")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(App, {}), document.getElementById("root"));
-}
+} // function App() {
+//     const [state, setState] = useState({
+//       fname: "",
+//       lname: "",
+//     })
+//     const handleChange = e => {
+//       setState({
+//         ...state,
+//         [e.target.name]: e.target.value,
+//       })
+//     }
+//     return (
+//       <div>
+//         <h1>React Form Handling</h1>
+//         <form>
+//           <label>
+//             First Name:{" "}
+//             <input
+//               type="text"
+//               name="fname"
+//               value={state.fname}
+//               onChange={handleChange}
+//             />
+//           </label>{" "}
+//           <label>
+//             Last Name:{" "}
+//             <input
+//               type="text"
+//               name="lname"
+//               value={state.lname}
+//               onChange={handleChange}
+//             />
+//           </label>
+//         </form>
+//         <h5>
+//           Name: {state.fname} {state.lname}
+//         </h5>
+//       </div>
+//     )
+//   }
+//   export default App
 
 /***/ }),
 

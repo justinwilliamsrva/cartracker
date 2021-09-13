@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
+// look at bottom of page to find useState for functional components
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            year: "2016",
-            make: "Honda",
-            model: "CR-v",
-            milage: "100,000",
+            year: "",
+            make: "",
+            model: "",
+            milage: "",
             cars: [],
         };
         this.handleChange = this.handleChange.bind(this);
@@ -43,6 +45,7 @@ class App extends Component {
                                             type="number"
                                             className="form-control"
                                             id="exampleFormControlSelect1"
+                                            required
                                         >
                                             <option>2016</option>
                                             <option>2017</option>
@@ -63,6 +66,7 @@ class App extends Component {
                                             className="form-control"
                                             id="exampleFormControlInput1"
                                             placeholder="Honda"
+                                            required
                                         />
                                     </div>
                                     <div className="form-group">
@@ -77,6 +81,7 @@ class App extends Component {
                                             className="form-control"
                                             id="exampleFormControlInput1"
                                             placeholder="CR-V"
+                                            required
                                         />
                                     </div>
                                     <div className="form-group">
@@ -91,6 +96,8 @@ class App extends Component {
                                             className="form-control"
                                             id="exampleFormControlInput1"
                                             placeholder="100,000"
+                                            step={10000}
+                                            required
                                         />
                                     </div>
                                     <button
@@ -114,3 +121,48 @@ export default App;
 if (document.getElementById("root")) {
     ReactDOM.render(<App />, document.getElementById("root"));
 }
+
+// function App() {
+//     const [state, setState] = useState({
+//       fname: "",
+//       lname: "",
+//     })
+
+//     const handleChange = e => {
+//       setState({
+//         ...state,
+//         [e.target.name]: e.target.value,
+//       })
+//     }
+
+//     return (
+//       <div>
+//         <h1>React Form Handling</h1>
+//         <form>
+//           <label>
+//             First Name:{" "}
+//             <input
+//               type="text"
+//               name="fname"
+//               value={state.fname}
+//               onChange={handleChange}
+//             />
+//           </label>{" "}
+//           <label>
+//             Last Name:{" "}
+//             <input
+//               type="text"
+//               name="lname"
+//               value={state.lname}
+//               onChange={handleChange}
+//             />
+//           </label>
+//         </form>
+//         <h5>
+//           Name: {state.fname} {state.lname}
+//         </h5>
+//       </div>
+//     )
+//   }
+
+//   export default App
