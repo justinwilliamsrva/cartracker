@@ -13,7 +13,7 @@ function App() {
                             <form>
                                 <div className="form-group">
                                     <label for="exampleFormControlSelect1">
-                                       Year
+                                        Year
                                     </label>
                                     <select
                                         class="form-control"
@@ -25,8 +25,8 @@ function App() {
                                         <option>2019</option>
                                         <option>2020</option>
                                     </select>
-                                    </div>
-                                    <div className="form-group">
+                                </div>
+                                <div className="form-group">
                                     <label for="exampleFormControlInput1">
                                         Car Make
                                     </label>
@@ -36,8 +36,8 @@ function App() {
                                         id="exampleFormControlInput1"
                                         placeholder="Honda"
                                     />
-                                    </div>
-                                    <div className="form-group">
+                                </div>
+                                <div className="form-group">
                                     <label for="exampleFormControlInput1">
                                         Car Model
                                     </label>
@@ -47,10 +47,10 @@ function App() {
                                         id="exampleFormControlInput1"
                                         placeholder="CR-V"
                                     />
-                                    </div>
-                                    <div className="form-group">
+                                </div>
+                                <div className="form-group">
                                     <label for="exampleFormControlInput1">
-                                       Current Milage
+                                        Current Milage
                                     </label>
                                     <input
                                         type="milage"
@@ -58,8 +58,10 @@ function App() {
                                         id="exampleFormControlInput1"
                                         placeholder="100,000"
                                     />
-                                    </div>
-                              
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
                             </form>
                         </div>
                     </div>

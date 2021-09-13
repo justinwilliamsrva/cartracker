@@ -2208,6 +2208,10 @@ function App() {
                   id: "exampleFormControlInput1",
                   placeholder: "100,000"
                 })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                type: "submit",
+                "class": "btn btn-primary",
+                children: "Submit"
               })]
             })
           })]
