@@ -2199,8 +2199,9 @@ var App = /*#__PURE__*/function (_Component) {
       cars: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.renderTasks = this.renderTasks.bind(this);
-
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.renderTasks = _this.renderTasks.bind(_assertThisInitialized(_this));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
   } // handle change
 
@@ -2244,9 +2245,9 @@ var App = /*#__PURE__*/function (_Component) {
           className: "media",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "media-body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              children: car.make
-            }, car.id)
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [car.year, " ", car.make, " ", car.model, " with ", car.mileage, " ", "miles"]
+            })
           })
         }, car.id);
       });
@@ -2267,6 +2268,20 @@ var App = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getTasks();
+    } //handle delete
+
+  }, {
+    key: "handleDelete",
+    value: function handleDelete(id) {
+      // remove from local state
+      var isNotId = function isNotId(car) {
+        return car.id != id;
+      };
+
+      var updatedCars = this.state.cars.filter(isNotId);
+      this.setState({
+        cars: updatedCars
+      }); //make delete request to the backend
     }
   }, {
     key: "render",
