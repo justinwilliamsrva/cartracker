@@ -2199,7 +2199,8 @@ var App = /*#__PURE__*/function (_Component) {
       cars: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.renderTasks = this.renderTasks.bind(this);
+
     return _this;
   } // handle change
 
@@ -2224,6 +2225,8 @@ var App = /*#__PURE__*/function (_Component) {
         model: this.state.model,
         mileage: this.state.mileage
       }).then(function (response) {
+        console.log(response);
+
         _this2.setState({
           cars: [response.data].concat(_toConsumableArray(_this2.state.cars)),
           year: "",
@@ -2232,6 +2235,38 @@ var App = /*#__PURE__*/function (_Component) {
           mileage: ""
         });
       });
+    }
+  }, {
+    key: "renderTasks",
+    value: function renderTasks() {
+      return this.state.cars.map(function (car) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "media",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "media-body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              children: car.make
+            }, car.id)
+          })
+        }, car.id);
+      });
+    }
+  }, {
+    key: "getTasks",
+    value: function getTasks() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/cars").then(function (response) {
+        return _this3.setState({
+          cars: _toConsumableArray(response.data.cars)
+        });
+      });
+    } //lifecycle method
+
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getTasks();
     }
   }, {
     key: "render",
@@ -2247,9 +2282,9 @@ var App = /*#__PURE__*/function (_Component) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "card-header",
                 children: "React Component"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "card-body",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
                   onSubmit: this.handleSubmit,
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                     className: "form-group",
@@ -2328,7 +2363,7 @@ var App = /*#__PURE__*/function (_Component) {
                     className: "btn btn-primary",
                     children: "Submit"
                   })]
-                })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), this.renderTasks()]
               })]
             })
           })

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Car;
 
 class CarController extends Controller
 {
@@ -17,7 +18,7 @@ class CarController extends Controller
     {
         //get call the cars based on current user id
         $allCars = $car->whereIn("user_id", $request->user())->with('user');
-        $cars = $allCars->orderBy('created_at', 'desc')->take(20)->get();
+        $cars = $allCars->orderBy('created_at', 'asc')->take(20)->get();
         //return json response
         return response()->json(["cars" => $cars]);
     }

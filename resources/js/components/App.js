@@ -16,6 +16,7 @@ class App extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        // this.renderTasks = this.renderTasks.bind(this);
     }
 
     // handle change
@@ -36,6 +37,7 @@ class App extends Component {
                 mileage: this.state.mileage,
             })
             .then((response) => {
+                console.log(response);
                 this.setState({
                     cars: [response.data, ...this.state.cars],
                     year: "",
@@ -45,6 +47,29 @@ class App extends Component {
                 });
             });
     }
+
+    renderTasks() {
+        return this.state.cars.map((car) => (
+            <div key={car.id} className="media">
+                <div className="media-body">
+                    <div key={car.id}>{car.make}</div>
+                </div>
+            </div>
+        ));
+    }
+
+    getTasks() {
+        axios
+            .get("/cars")
+            .then((response) =>
+                this.setState({ cars: [...response.data.cars] })
+            );
+    }
+    //lifecycle method
+    componentDidMount() {
+        this.getTasks();
+    }
+
     render() {
         return (
             <div className="container">
@@ -129,6 +154,8 @@ class App extends Component {
                                         Submit
                                     </button>
                                 </form>
+                                <hr />
+                                {this.renderTasks()}
                             </div>
                         </div>
                     </div>
