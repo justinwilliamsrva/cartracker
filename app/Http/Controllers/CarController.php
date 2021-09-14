@@ -68,5 +68,6 @@ class CarController extends Controller
     public function destroy($id)
     {
         //
+        Car::findOrFail($id)->delete();
     }
 }

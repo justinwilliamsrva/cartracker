@@ -51,7 +51,7 @@ class App extends Component {
 
     renderTasks() {
         return this.state.cars.map((car) => (
-            <div key={car.id} className="media">
+            <div key={car.id} className="media pb-2">
                 <div className="media-body">
                     <div>
                         {car.year} {car.make} {car.model} with {car.mileage}{" "}
@@ -87,6 +87,7 @@ class App extends Component {
         const updatedCars = this.state.cars.filter(isNotId);
         this.setState({ cars: updatedCars });
         //make delete request to the backend
+        axios.delete(`/cars/${id}`);
     }
 
     render() {
@@ -173,7 +174,12 @@ class App extends Component {
                                         Submit
                                     </button>
                                 </form>
-                                <hr />
+                            </div>
+                        </div>
+                        <div className="card mt-1">
+                            <div className="card-header">Your Fleat</div>
+                            <div className="card=body p-2">
+                                {" "}
                                 {this.renderTasks()}
                             </div>
                         </div>
