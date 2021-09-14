@@ -56,6 +56,12 @@ class App extends Component {
                     <div>
                         {car.year} {car.make} {car.model} with {car.mileage}{" "}
                         miles
+                        <button
+                            onClick={() => this.handleDelete(car.id)}
+                            className="btn btn-sm btn-warning float-right"
+                        >
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>

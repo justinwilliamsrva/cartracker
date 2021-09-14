@@ -2240,13 +2240,21 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderTasks",
     value: function renderTasks() {
+      var _this3 = this;
+
       return this.state.cars.map(function (car) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "media",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "media-body",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              children: [car.year, " ", car.make, " ", car.model, " with ", car.mileage, " ", "miles"]
+              children: [car.year, " ", car.make, " ", car.model, " with ", car.mileage, " ", "miles", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                onClick: function onClick() {
+                  return _this3.handleDelete(car.id);
+                },
+                className: "btn btn-sm btn-warning float-right",
+                children: "Delete"
+              })]
             })
           })
         }, car.id);
@@ -2255,10 +2263,10 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "getTasks",
     value: function getTasks() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("/cars").then(function (response) {
-        return _this3.setState({
+        return _this4.setState({
           cars: _toConsumableArray(response.data.cars)
         });
       });
