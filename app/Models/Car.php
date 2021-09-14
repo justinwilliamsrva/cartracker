@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     use HasFactory;
-    protected $fillable = ["year","make","model","mileage",];
-    public function user(){
+    protected $fillable = ['year', 'make', 'model', 'mileage',];
+    public function user()
+    {
         return $this->belongsTO(User::class);
-
     }
-
 }

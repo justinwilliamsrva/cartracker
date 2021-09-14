@@ -15,8 +15,8 @@ class CarController extends Controller
 
     public function index(Request $request, Car $car)
     {
-        //get call teh cars based on current user id
-        $allCars = $car->whereIn("user-id", $request->user())->with('user');
+        //get call the cars based on current user id
+        $allCars = $car->whereIn("user_id", $request->user())->with('user');
         $cars = $allCars->orderBy('created_at', 'desc')->take(20)->get();
         //return json response
         return response()->json(["cars" => $cars]);
@@ -31,7 +31,7 @@ class CarController extends Controller
     public function store(Request $request)
     {
         //validation
-        $this->validate($request, ['year' => 'required|max:4', 'make' => 'required|max:30', 'model' => 'required|max:30', 'mileage' => 'required|max:10']);
+        $this->validate($request, ['year' => 'required', 'make' => 'required|max:30', 'model' => 'required|max:30', 'mileage' => 'required|max:10']);
         //create a new car based on user cars relationship
 
         $car = $request->user()->cars()->create([

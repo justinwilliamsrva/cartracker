@@ -15,11 +15,11 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->integer('user-id')->unsigned()->index();
-            $table->integer("year")->unsigned();
-            $table->string("make");
-            $table->string("model");
-            $table->string("mileage");
+            $table->integer('user_id')->unsigned()->index();
+            $table->integer('year')->unsigned();
+            $table->string('make');
+            $table->string('model');
+            $table->string('mileage');
             $table->timestamps();
         });
     }

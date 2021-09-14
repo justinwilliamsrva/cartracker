@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
@@ -10,10 +11,11 @@ class App extends Component {
             year: "",
             make: "",
             model: "",
-            milage: "",
+            mileage: "",
             cars: [],
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // handle change
@@ -24,6 +26,25 @@ class App extends Component {
 
         this.setState({ [name]: value });
     }
+    handleSubmit(e) {
+        e.preventDefault();
+        axios
+            .post("/cars", {
+                year: this.state.year,
+                make: this.state.make,
+                model: this.state.model,
+                mileage: this.state.mileage,
+            })
+            .then((response) => {
+                this.setState({
+                    cars: [response.data, ...this.state.cars],
+                    year: "",
+                    make: "",
+                    model: "",
+                    mileage: "",
+                });
+            });
+    }
     render() {
         return (
             <div className="container">
@@ -33,7 +54,7 @@ class App extends Component {
                             <div className="card-header">React Component</div>
 
                             <div className="card-body">
-                                <form>
+                                <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="exampleFormControlSelect1">
                                             Year
@@ -86,17 +107,18 @@ class App extends Component {
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="exampleFormControlInput1">
-                                            Current Milage
+                                            Current Mileage
                                         </label>
                                         <input
-                                            name="milage"
+                                            name="mileage"
                                             onChange={this.handleChange}
-                                            value={this.state.milage}
+                                            value={this.state.mileage}
                                             type="number"
                                             className="form-control"
                                             id="exampleFormControlInput1"
                                             placeholder="100,000"
                                             step={10000}
+                                            min={0}
                                             required
                                         />
                                     </div>

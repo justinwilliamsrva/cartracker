@@ -26,4 +26,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource("cars", "App\Http\Controllers\CarController");
+Route::post('cars', 'App\Http\Controllers\CarController@store')->name("cars.store");
+// Route::resource('cars', 'App\Http\Controllers\CarController');
