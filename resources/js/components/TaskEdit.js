@@ -31,37 +31,30 @@ export default class TaskEdit extends Component {
     handleSubmit(e) {
         e.preventDefault();
         axios
-            .post("/cars", {
+            .put(`/cars/${this.props.match.params.id}`, {
                 year: this.state.year,
                 make: this.state.make,
                 model: this.state.model,
                 mileage: this.state.mileage,
             })
             .then((response) => {
-                console.log(response);
-                this.setState({
-                    cars: [response.data, ...this.state.cars],
-                    year: "",
-                    make: "",
-                    model: "",
-                    mileage: "",
-                });
+                this.props.history.push("/home");
             });
     }
 
     getTasks() {
         axios
             .get(`/cars/${this.props.match.params.id}/edit`)
-            .then((response) =>
+            .then((response) => {
+                console.log(response);
                 this.setState({
                     car: response.data.car,
-                    year: response.data.car,
+                    year: response.data.car.year,
                     make: response.data.car.make,
                     model: response.data.car.model,
                     mileage: response.data.car.mileage,
-                })
-            )
-            .then((response) => console.log(response));
+                });
+            });
     }
 
     //lifecycle method
@@ -76,7 +69,7 @@ export default class TaskEdit extends Component {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">
-                            <div className="card-header">React Component</div>
+                            <div className="card-header">Edit Car</div>
 
                             <div className="card-body">
                                 <form onSubmit={this.handleSubmit}>
@@ -151,7 +144,7 @@ export default class TaskEdit extends Component {
                                         type="submit"
                                         className="btn btn-primary"
                                     >
-                                        Submit
+                                        Edit Task
                                     </button>
                                 </form>
                             </div>
