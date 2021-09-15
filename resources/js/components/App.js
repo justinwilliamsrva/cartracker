@@ -58,22 +58,24 @@ class App extends Component {
         return this.state.cars.map((car) => (
             <div key={car.id} className="media pb-2">
                 <div className="media-body">
-                    <div>
-                        {car.year} {car.make} {car.model} {car.mileage} with
-                        miles{overdueWork(car.mileage)}
-                        <button
-                            onClick={() => this.handleDelete(car.id)}
-                            className="btn btn-sm btn-warning float-right "
-                        >
-                            Delete
-                        </button>
-                        <Link
-                            to={`/${car.id}/edit`}
-                            className="btn btn-sm btn-success float-right mr-1"
-                        >
-                            Update
-                        </Link>
-                    </div>
+                    <Link to={`/${car.id}/edit`}>
+                        {car.year} {car.make} {car.model} with {car.mileage}{" "}
+                        miles
+                    </Link>
+
+                    <button
+                        onClick={() => this.handleDelete(car.id)}
+                        className="btn btn-sm btn-warning float-right "
+                    >
+                        Delete
+                    </button>
+                    <p className="mb-0">
+                        Current Status: {overdueWork(car.mileage)}
+                    </p>
+                    <p className="text-muted ">
+                        last updated on {car.updated_at.slice(0, 10)}
+                    </p>
+                    <hr className="m-0" />
                 </div>
             </div>
         ));
