@@ -20,6 +20,3 @@ if (document.getElementById("root")) {
         document.getElementById("root")
     );
 }
-function TaskEdit() {
-    return <h2>Home</h2>;
-}

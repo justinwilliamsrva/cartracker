@@ -2,6 +2,7 @@ import axios from "axios";
 import { over } from "lodash";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 
 // look at bottom of page to find useState for functional components
 
@@ -63,10 +64,16 @@ class App extends Component {
                         miles{overdueWork(car.mileage)}
                         <button
                             onClick={() => this.handleDelete(car.id)}
-                            className="btn btn-sm btn-warning float-right"
+                            className="btn btn-sm btn-warning float-right "
                         >
                             Delete
                         </button>
+                        <Link
+                            to={`/${car.id}/edit`}
+                            className="btn btn-sm btn-success float-right mr-1"
+                        >
+                            Update
+                        </Link>
                     </div>
                 </div>
             </div>
