@@ -1,4 +1,5 @@
 import axios from "axios";
+import { over } from "lodash";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
@@ -17,6 +18,7 @@ class App extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderTasks = this.renderTasks.bind(this);
+
         this.handleDelete = this.handleDelete.bind(this);
     }
 
@@ -50,12 +52,15 @@ class App extends Component {
     }
 
     renderTasks() {
+        function overdueWork(mileage) {
+            return mileage < 40000 ? " car is working fine" : " fix me now";
+        }
         return this.state.cars.map((car) => (
             <div key={car.id} className="media pb-2">
                 <div className="media-body">
                     <div>
-                        {car.year} {car.make} {car.model} with {car.mileage}{" "}
-                        miles
+                        {car.year} {car.make} {car.model} {car.mileage} with
+                        miles{overdueWork(car.mileage)}
                         <button
                             onClick={() => this.handleDelete(car.id)}
                             className="btn btn-sm btn-warning float-right"
@@ -71,10 +76,12 @@ class App extends Component {
     getTasks() {
         axios
             .get("/cars")
+            // .then((response) => console.log(response))
             .then((response) =>
                 this.setState({ cars: [...response.data.cars] })
             );
     }
+
     //lifecycle method
     componentDidMount() {
         this.getTasks();

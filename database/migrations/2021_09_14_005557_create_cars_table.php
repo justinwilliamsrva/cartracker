@@ -19,7 +19,7 @@ class CreateCarsTable extends Migration
             $table->integer('year')->unsigned();
             $table->string('make');
             $table->string('model');
-            $table->string('mileage');
+            $table->integer('mileage')->change;
             $table->timestamps();
         });
     }
