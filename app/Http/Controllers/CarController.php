@@ -55,13 +55,19 @@ class CarController extends Controller
 
     public function edit($id)
     {
-        //
+        $car = Car::findOrFail($id);
+        return response()->json([
+            'car' => $car,
+        ]);
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $car = Car::findOrFail($id);
+        $car->update($input);
+        return response()->json($car->with('user')->find($car->id));
     }
 
 

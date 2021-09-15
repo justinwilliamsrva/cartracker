@@ -10,9 +10,8 @@ if (document.getElementById("root")) {
     ReactDOM.render(
         <BrowserRouter>
             <Switch>
-                <Route path="/:id/edit">
-                    <TaskEdit />
-                </Route>
+                <Route path="/:id/edit" component={TaskEdit} />
+
                 <App />
             </Switch>
         </BrowserRouter>,

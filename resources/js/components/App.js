@@ -19,7 +19,6 @@ class App extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderTasks = this.renderTasks.bind(this);
-
         this.handleDelete = this.handleDelete.bind(this);
     }
 
