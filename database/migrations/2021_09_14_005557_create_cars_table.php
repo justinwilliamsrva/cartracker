@@ -13,6 +13,8 @@ class CreateCarsTable extends Migration
      */
     public function up()
     {
+        if (Schema::hasTable('cars')) return;
+
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned()->index();
