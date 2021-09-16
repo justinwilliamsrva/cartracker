@@ -69,6 +69,12 @@ class App extends Component {
                     >
                         Delete
                     </button>
+                    <Link
+                        to={`/${car.id}/`}
+                        className="btn btn-sm btn-success float-right mr-1"
+                    >
+                        Show
+                    </Link>
                     <p className="mb-0">
                         Current Status: {overdueWork(car.mileage)}
                     </p>

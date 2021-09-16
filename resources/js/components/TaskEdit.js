@@ -64,6 +64,8 @@ export default class TaskEdit extends Component {
 
     render() {
         // console.log(this.props.match.params.id);
+        console.log(this.props);
+
         return (
             <div className="container">
                 <div className="row justify-content-center">
