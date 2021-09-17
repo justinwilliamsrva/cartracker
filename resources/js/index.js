@@ -11,8 +11,8 @@ if (document.getElementById("root")) {
     ReactDOM.render(
         <Router>
             <Switch>
-                <Route exact path="/home" component={App} />
-                <Route exact path="/:id" component={ShowCar} />
+                <Route exact path="/newcar" component={App} />
+                <Route exact path="/dashboard" component={ShowCar} />
                 <Route exact path="/:id/edit" component={TaskEdit} />
 
                 {/* <Route exact path="/home">

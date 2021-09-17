@@ -71,18 +71,16 @@ export default class ShowCar extends Component {
         ));
     }
     getTasks() {
-        axios
-            .get(`/cars/${this.props.match.params.id}/edit`)
-            .then((response) => {
-                console.log(response);
-                this.setState({
-                    car: response.data.car,
-                    year: response.data.car.year,
-                    make: response.data.car.make,
-                    model: response.data.car.model,
-                    mileage: response.data.car.mileage,
-                });
+        axios.get(`/cars/5/edit`).then((response) => {
+            console.log("response", response);
+            this.setState({
+                car: response.data.car,
+                year: response.data.car.year,
+                make: response.data.car.make,
+                model: response.data.car.model,
+                mileage: response.data.car.mileage,
             });
+        });
     }
     getCars() {
         axios
