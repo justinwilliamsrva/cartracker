@@ -2,7 +2,7 @@ import axios from "axios";
 import { over } from "lodash";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 
 // look at bottom of page to find useState for functional components
 

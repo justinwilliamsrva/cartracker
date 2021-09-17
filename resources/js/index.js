@@ -4,30 +4,30 @@ import App from "./components/App";
 import TaskEdit from "./components/TaskEdit";
 import ShowCar from "./components/ShowCar";
 
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { setWith } from "lodash";
 import { WebpackOptionsApply } from "webpack";
 if (document.getElementById("root")) {
     ReactDOM.render(
-        <BrowserRouter>
+        <Router>
             <Switch>
-                <Route path="/home" component={App} />\
-                <Route path="/:id/edit" component={TaskEdit} />
-                <Route path="/:id" component={ShowCar} />
+                <Route exact path="/home" component={App} />
+                <Route exact path="/:id" component={ShowCar} />
+                <Route exact path="/:id/edit" component={TaskEdit} />
+
+                {/* <Route exact path="/home">
+                    <App />
+                </Route>
+                <Route exact path="/:id/edit">
+                    <TaskEdit />
+                </Route> */}
             </Switch>
-        </BrowserRouter>,
+        </Router>,
 
         document.getElementById("root")
     );
 }
-{
-    /* <Route path="/home">
-<App />
-</Route>
-<Route path="/:id/edit">
-<TaskEdit />
-</Route>
-<Route path="/:id">
-<ShowCar />
-</Route> */
-}
+
+// <Route path="/:id">
+// <ShowCar />
+// </Route>
