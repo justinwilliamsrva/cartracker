@@ -13,7 +13,9 @@ if (document.getElementById("root")) {
             <Switch>
                 <Route exact path="/newcar" component={App} />
                 <Route exact path="/dashboard" component={ShowCar} />
+                <Route exact path="/home" component={ShowCar} />
                 <Route exact path="/:id/edit" component={TaskEdit} />
+                {/* <ShowCar /> */}
 
                 {/* <Route exact path="/home">
                     <App />
