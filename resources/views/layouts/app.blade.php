@@ -41,12 +41,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">ABOUT</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/donate">DONATE</a>
-                        </li>
+
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -61,6 +56,15 @@
                         </li>
                         @endif
                         @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">DASHBOARD</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/donate">DONATE</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 {{ __('LOGOUT') }}

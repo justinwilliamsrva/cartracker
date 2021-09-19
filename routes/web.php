@@ -29,7 +29,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::post('cars', 'App\Http\Controllers\CarController@store')->name("cars.store");
 // Route::get('cars', 'App\Http\Controllers\CarController@index');
 
-Route::resource('cars', 'App\Http\Controllers\CarController');
+Route::resource('cars', 'App\Http\Controllers\CarController')->middleware('auth');
+Route::view('/dashboard', 'home')->middleware('auth');
 
 Route::fallback(function () {
     return view('home');
