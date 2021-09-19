@@ -41,8 +41,8 @@ export default class ShowCar extends Component {
             return mileage < 40000 ? " car is working fine" : " fix me now";
         }
         return this.state.cars.map((car) => (
-            <div key={car.id} className="media pb-2">
-                <div className="media-body">
+            <div key={car.id} className="media rounded pb-2 m-2 bg-blue-400">
+                <div className="media-body p-2 ">
                     <Link to={`/${car.id}/edit`}>
                         {car.year} {car.make} {car.model} with {car.mileage}{" "}
                         miles
@@ -54,12 +54,7 @@ export default class ShowCar extends Component {
                     >
                         Delete
                     </button>
-                    <button
-                        onClick={() => this.handleChange(car)}
-                        className="btn btn-sm btn-success float-right "
-                    >
-                        Show
-                    </button>
+
                     {/* <Link
                         to={`/${car.id}`}
                         
@@ -67,12 +62,20 @@ export default class ShowCar extends Component {
                     >
                         Show
                     </Link> */}
+                    <button
+                        onClick={() => this.handleChange(car)}
+                        className="btn btn-sm btn-success float-right "
+                    >
+                        Show
+                    </button>
                     <p className="mb-0">
                         Current Status: {overdueWork(car.mileage)}
                     </p>
+
                     <p className="text-muted ">
                         last updated on {car.updated_at.slice(0, 10)}
                     </p>
+
                     <hr className="m-0" />
                 </div>
             </div>
@@ -110,37 +113,60 @@ export default class ShowCar extends Component {
         return (
             <>
                 <div className="container">
-                    <div className="row justify-content-center">
-                        <table className="table table-sm col-3 align-middle ">
-                            <thead>
-                                <tr>
-                                    <th colSpan="2" scope="col">
-                                        Milage
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Last Change</th>
-                                    <th scope="row">{this.state.mileage}</th>
-                                </tr>
-                                <tr>
-                                    <th scope="row">New Change</th>
-                                    <th scope="row">
-                                        {this.state.mileage + 5000}
-                                    </th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-md-8">
-                            <div className="card mt-1">
+                    <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2">
+                        <div className="md:col-span-1 lg:col-span-1">
+                            <div className="card  h-100">
                                 <div className="card-header">Your Fleat</div>
-                                <div className="card=body p-2">
+                                <div className="card-body">
                                     {this.renderTasks()}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="md:col-span-1 lg:col-span-2">
+                            <div class="card h-100">
+                                <div className="card-header text-center">
+                                    {" "}
+                                    {this.state.year} {this.state.make}{" "}
+                                    {this.state.model} with {this.state.mileage}{" "}
+                                    miles{" "}
+                                </div>
+                                <div className="card-body  grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                                    <div class="text-xl  flex items-center ">
+                                        Last Updated - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Mileage - {this.state.mileage}
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Exterior Color - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Interior Color - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Vin - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Doors - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        DriveTrain - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Type - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Cylinders - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Yearly Mileage - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Transmission - 1,000,000
+                                    </div>
+                                    <div class="text-xl  flex items-center ">
+                                        Date Purchased - 1,000,000
+                                    </div>
                                 </div>
                             </div>
                         </div>
