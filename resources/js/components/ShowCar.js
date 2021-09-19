@@ -16,7 +16,15 @@ export default class ShowCar extends Component {
         this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
         this.renderTasks = this.renderTasks.bind(this);
-        // this.handleDelete = this.handleDelete.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+    }
+    handleDelete(id) {
+        // remove from local state
+        const isNotId = (car) => car.id != id;
+        const updatedCars = this.state.cars.filter(isNotId);
+        this.setState({ cars: updatedCars });
+        //make delete request to the backend
+        axios.delete(`/cars/${id}`);
     }
 
     handleChange(car) {
