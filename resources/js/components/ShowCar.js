@@ -125,8 +125,7 @@ export default class ShowCar extends Component {
                                     <div className="card-header">
                                         <h2>
                                             Your Fleet{" "}
-                                            <br className="sm:hidden" />
-                                            <div className="xs:float-left sm:float-right">
+                                            <div className="float-right">
                                                 <Link
                                                     to={`/newcar`}
                                                     className="btn btn-sm btn-primary  mr-1"
@@ -147,7 +146,7 @@ export default class ShowCar extends Component {
                                         <div className="card-header">
                                             <h2>
                                                 Vehicle Info
-                                                <div className="xs:mt-2 sm:float-right">
+                                                <div className="float-right">
                                                     <Link
                                                         to={`/${this.state.id}/edit`}
                                                         className="btn btn-sm btn-primary mr-1"
