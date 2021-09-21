@@ -37,6 +37,29 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+@media only screen and (min-width: 1024px) and (min-height: 925px) {
+  .maintenance {
+    /* border: solid red 5px; */
+    height: 35vh;
+    overflow-y: scroll;
+  }
+  .maintenances {
+    /* border: solid red 5px; */
+    height: 35vh;
+    /* overflow-y: scroll; */
+  }
+ }
+@media only screen and (min-width: 1024px) and (max-height: 925px) {.maintenance {
+  /* border: solid red 5px; */
+  height: 45vh;
+  overflow-y: scroll;
+}.maintenances {
+  /* border: solid red 5px; */
+  height: 45vh;
+  /* overflow-y: scroll; */
+} }
+
+
 *,
 *::before,
 *::after {
@@ -10577,6 +10600,28 @@ video {
 *, ::before, ::after {
   --tw-border-opacity: 1;
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  /* @apply margin:0;
+        @apply padding:0; */
+}
+
+a {
+  --tw-text-opacity: 1;
+  color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
 
 .container {
@@ -198017,3 +198062,5 @@ video {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
+

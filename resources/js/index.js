@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 import TaskEdit from "./components/TaskEdit";
 import ShowCar from "./components/ShowCar";
+import Footer from "./components/Footer";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { setWith } from "lodash";
@@ -24,6 +25,7 @@ if (document.getElementById("root")) {
                     <TaskEdit />
                 </Route> */}
             </Switch>
+            <Footer />
         </Router>,
 
         document.getElementById("root")
