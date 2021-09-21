@@ -114,7 +114,8 @@ export default class ShowCar extends Component {
                             </h1>
                         ) : (
                             <h1 className="text-center p-3 mb-3">
-                                Select a Vehicle from "Your Fleet"
+                                Select a Vehicle <br className="md:hidden" />
+                                or Add a New One
                             </h1>
                         )}
                     </div>
@@ -130,7 +131,7 @@ export default class ShowCar extends Component {
                                                     to={`/newcar`}
                                                     className="btn btn-sm btn-primary  mr-1"
                                                 >
-                                                    Add a Car
+                                                    Add a Vehicle
                                                 </Link>
                                             </div>
                                         </h2>
