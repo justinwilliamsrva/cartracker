@@ -107,9 +107,16 @@ export default class ShowCar extends Component {
             <>
                 <div className="container ">
                     <div>
-                        <h1 className="text-center p-3 mb-3">
-                            Vehicle Dashabord
-                        </h1>
+                        {this.state.id ? (
+                            <h1 className="text-center p-3 mb-3">
+                                {this.state.year} {this.state.make}{" "}
+                                {this.state.model}
+                            </h1>
+                        ) : (
+                            <h1 className="text-center p-3 mb-3">
+                                Select a Vehicle from "Your Fleet"
+                            </h1>
+                        )}
                     </div>
                     <div>
                         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2">
@@ -117,7 +124,7 @@ export default class ShowCar extends Component {
                                 <div className="card  h-100">
                                     <div className="card-header">
                                         <h2>
-                                            Your Fleat{" "}
+                                            Your Fleet{" "}
                                             <br className="sm:hidden" />
                                             <div className="xs:float-left sm:float-right">
                                                 <Link
@@ -134,46 +141,203 @@ export default class ShowCar extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="md:col-span-1 lg:col-span-2">
-                                <div className="card h-100">
-                                    <div className="card-header">
-                                        <h2>
-                                            {" "}
-                                            {this.state.year} {this.state.make}{" "}
-                                            {this.state.model}
-                                            <div className="xs:mt-2 sm:float-right">
-                                                <Link
-                                                    to={`/${this.state.id}/edit`}
-                                                    className="btn btn-sm btn-primary mr-1"
-                                                >
-                                                    Update
-                                                </Link>
-                                                <a
-                                                    onClick={() =>
-                                                        this.handleDelete(
-                                                            this.state.id
-                                                        )
-                                                    }
-                                                    className="btn btn-sm btn-warning mr-1 "
-                                                >
-                                                    Delete
-                                                </a>
+                            {this.state.id && (
+                                <div className="md:col-span-1 lg:col-span-2">
+                                    <div className="card h-100">
+                                        <div className="card-header">
+                                            <h2>
+                                                Vehicle Info
+                                                <div className="xs:mt-2 sm:float-right">
+                                                    <Link
+                                                        to={`/${this.state.id}/edit`}
+                                                        className="btn btn-sm btn-primary mr-1"
+                                                    >
+                                                        Update
+                                                    </Link>
+                                                    <a
+                                                        onClick={() =>
+                                                            this.handleDelete(
+                                                                this.state.id
+                                                            )
+                                                        }
+                                                        className="btn btn-sm btn-warning mr-1 "
+                                                    >
+                                                        Delete
+                                                    </a>
+                                                </div>
+                                            </h2>
+                                        </div>
+                                        <div className="card-body maintenances grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
                                             </div>
-                                        </h2>
-                                    </div>
-                                    <div className="card-body maintenances grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                                    <table class="table table-bordered table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">Last Updated</th>
-                        <th scope="col">LAst Week</th>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div className="p-2">
+                                                <table class="table table-bordered table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">
+                                                                Last Updated
+                                                            </th>
+                                                            <th scope="col">
+                                                                LAst Week
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
 
-                       
-                    </tr>
-                </thead>
-                
-            </table>
-                                        <div className="text-xl  flex items-center ">
+                                            {/* <div className="text-xl  flex items-center ">
                                             Mileage - {this.state.mileage}
                                         </div>
                                         <div className="text-xl  flex items-center ">
@@ -205,62 +369,66 @@ export default class ShowCar extends Component {
                                         </div>
                                         <div className="text-xl  flex items-center ">
                                             Date Purchased - 1,000,000
+                                        </div> */}
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
-                        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2 mt-3">
-                            <div className=" md:col-span-1 lg:col-span-1">
-                                <div className="card">
-                                    <div className="card-header">
-                                        <h2>Status</h2>
-                                    </div>
-                                    <div className="card-body maintenances">
-                                        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-1 gap-2 ">
-                                            <div>
-                                                <div className="text-white bg-green-500  rounded-t  px-4 py-2 text-center">
-                                                    Up-to-date
-                                                </div>
-                                                <div class="border border-t-0 border-green-400  font-bold text-3xl rounded-b   px-1 py-1 text-green-500 text-center">
-                                                    <p>22</p>
-                                                </div>
-                                            </div>
 
-                                            <div>
-                                                <div className="text-white bg-yellow-500  rounded-t  px-4 py-2 text-center">
-                                                    Due Soon
+                        {this.state.id && (
+                            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2 mt-3">
+                                <div className=" md:col-span-1 lg:col-span-1">
+                                    <div className="card">
+                                        <div className="card-header">
+                                            <h2>Status</h2>
+                                        </div>
+                                        <div className="card-body maintenances">
+                                            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-1 gap-2 ">
+                                                <div>
+                                                    <div className="text-white bg-green-500  rounded-t  px-4 py-2 text-center">
+                                                        Up-to-date
+                                                    </div>
+                                                    <div class="border border-t-0 border-green-400  font-bold text-3xl rounded-b   px-1 py-1 text-green-500 text-center">
+                                                        <p>22</p>
+                                                    </div>
                                                 </div>
-                                                <div class="border border-t-0 border-yellow-400  font-bold text-3xl rounded-b   px-1 py-1 text-yellow-500 text-center">
-                                                    <p>1</p>
-                                                </div>
-                                            </div>
 
-                                            <div>
-                                                <div className="text-white bg-red-500  rounded-t  px-4 py-2 text-center">
-                                                    Past-due
+                                                <div>
+                                                    <div className="text-white bg-yellow-500  rounded-t  px-4 py-2 text-center">
+                                                        Due Soon
+                                                    </div>
+                                                    <div class="border border-t-0 border-yellow-400  font-bold text-3xl rounded-b   px-1 py-1 text-yellow-500 text-center">
+                                                        <p>1</p>
+                                                    </div>
                                                 </div>
-                                                <div class="border border-t-0 border-red-400  font-bold text-3xl rounded-b   px-1 py-1 text-red-500 text-center">
-                                                    <p>0</p>
+
+                                                <div>
+                                                    <div className="text-white bg-red-500  rounded-t  px-4 py-2 text-center">
+                                                        Past-due
+                                                    </div>
+                                                    <div class="border border-t-0 border-red-400  font-bold text-3xl rounded-b   px-1 py-1 text-red-500 text-center">
+                                                        <p>0</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="md:col-span-1 lg:col-span-2 ">
-                                <div className="card ">
-                                    <div className="card-header ">
-                                        <h2>Maintenance Records</h2>
-                                    </div>
+                                <div className="md:col-span-1 lg:col-span-2 ">
+                                    <div className="card ">
+                                        <div className="card-header ">
+                                            <h2>Maintenance Records</h2>
+                                        </div>
 
-                                    <Maintenance mileage={this.state.mileage} />
+                                        <Maintenance
+                                            mileage={this.state.mileage}
+                                        />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        )}
                     </div>
-
-                
                 </div>
             </>
         );
