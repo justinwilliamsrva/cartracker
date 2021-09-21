@@ -36,7 +36,6 @@
   --font-family-sans-serif: "Nunito", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-
 @media only screen and (min-width: 1024px) and (min-height: 925px) {
   .maintenance {
     /* border: solid red 5px; */
@@ -58,6 +57,7 @@
   height: 45vh;
   /* overflow-y: scroll; */
 } }
+
 
 
 *,
