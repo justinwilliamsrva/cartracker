@@ -4,6 +4,7 @@ import App from "./components/App";
 import TaskEdit from "./components/TaskEdit";
 import ShowCar from "./components/ShowCar";
 import Footer from "./components/Footer";
+import "../../resources/css/index.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { setWith } from "lodash";

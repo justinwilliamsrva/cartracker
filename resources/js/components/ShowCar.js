@@ -19,16 +19,16 @@ export default class ShowCar extends Component {
         this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
         this.renderTasks = this.renderTasks.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
+        // this.handleDelete = this.handleDelete.bind(this);
     }
-    handleDelete(id) {
-        // remove from local state
-        const isNotId = (car) => car.id != id;
-        const updatedCars = this.state.cars.filter(isNotId);
-        this.setState({ cars: updatedCars });
-        //make delete request to the backend
-        axios.delete(`/cars/${id}`);
-    }
+    // handleDelete(id) {
+    //     // remove from local state
+    //     const isNotId = (car) => car.id != id;
+    //     const updatedCars = this.state.cars.filter(isNotId);
+    //     this.setState({ cars: updatedCars });
+    //     //make delete request to the backend
+    //     axios.delete(`/cars/${id}`);
+    // }
 
     handleChange(car) {
         this.setState({
@@ -119,9 +119,9 @@ export default class ShowCar extends Component {
                         )}
                     </div>
                     <div>
-                        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2">
+                        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-4">
                             <div className="md:col-span-1 lg:col-span-1">
-                                <div className="card  h-100">
+                                <div className="card shadow-md  h-100">
                                     <div className="card-header">
                                         <h2>
                                             Your Fleet{" "}
@@ -143,7 +143,7 @@ export default class ShowCar extends Component {
                             </div>
                             {this.state.id && (
                                 <div className="md:col-span-1 lg:col-span-2">
-                                    <div className="card h-100">
+                                    <div className="card shadow-md  h-100">
                                         <div className="card-header">
                                             <h2>
                                                 Vehicle Info
@@ -154,7 +154,7 @@ export default class ShowCar extends Component {
                                                     >
                                                         Update
                                                     </Link>
-                                                    <a
+                                                    {/* <a
                                                         onClick={() =>
                                                             this.handleDelete(
                                                                 this.state.id
@@ -163,11 +163,11 @@ export default class ShowCar extends Component {
                                                         className="btn btn-sm btn-warning mr-1 "
                                                     >
                                                         Delete
-                                                    </a>
+                                                    </a> */}
                                                 </div>
                                             </h2>
                                         </div>
-                                        <div className="card-body maintenances grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                                        <div className="card-body maintenances grid  sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                                             <div className="p-2">
                                                 <table class="table table-bordered table-sm">
                                                     <thead>
@@ -377,9 +377,9 @@ export default class ShowCar extends Component {
                         </div>
 
                         {this.state.id && (
-                            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-2 mt-3">
+                            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mt-3">
                                 <div className=" md:col-span-1 lg:col-span-1">
-                                    <div className="card">
+                                    <div className="card shadow-md ">
                                         <div className="card-header">
                                             <h2>Status</h2>
                                         </div>
@@ -416,7 +416,7 @@ export default class ShowCar extends Component {
                                     </div>
                                 </div>
                                 <div className="md:col-span-1 lg:col-span-2 ">
-                                    <div className="card ">
+                                    <div className="card shadow-md  ">
                                         <div className="card-header ">
                                             <h2>Maintenance Records</h2>
                                         </div>
