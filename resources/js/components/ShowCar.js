@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import RenderCars from "./RenderCars";
-import { BrowswerRouter, Link } from "react-router-dom";
+import { BrowswerRouter, Link, Redirect } from "react-router-dom";
 import Maintenance from "./Maintenance/Maintenance";
 import Footer from "./Footer";
 import { useHistory } from "react-router-dom";
@@ -120,12 +120,12 @@ export default class ShowCar extends Component {
         // this.getTasks();
         this.getCars();
     }
-    componentWillUnmount() {
-        this.getCars();
-    }
+    // componentWillUnmount() {
+    //     this.getCars();
+    // }
 
     render() {
-        let x = this.state.mileage;
+        // let history = useHistory();
         console.log(this.props);
         return (
             <>
@@ -160,9 +160,11 @@ export default class ShowCar extends Component {
                             </div>
                         ) : (
                             <h1 className="text-center p-3 mb-3">
-                                {this.state.cars
-                                    ? "Vehicle Dashboard"
-                                    : useHistory().push("/newcar")}
+                                {!this.state.cars ? (
+                                    <Redirect to="/newcar" />
+                                ) : (
+                                    "Vehicle Dashboard"
+                                )}
                             </h1>
                         )}
                     </div>
