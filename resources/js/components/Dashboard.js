@@ -78,7 +78,7 @@ export default class Dashboard extends Component {
         this.setState({ [name]: value });
     }
     handleSubmit(e) {
-        // e.preventDefault();
+        e.preventDefault();
         axios
             .put(`/cars/${this.state.id}`, {
                 mileage: this.state.mileage,
@@ -167,7 +167,7 @@ export default class Dashboard extends Component {
                     response.data.cars.length
                 );
                 if (response.data.cars.length === 0) {
-                    useHistory().push("/newcar");
+                    this.props.history.push("/newcar");
                 }
             });
     }
