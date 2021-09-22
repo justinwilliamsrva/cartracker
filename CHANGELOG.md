@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/justinwilliamsrva/cartracker/compare/v0.1.4...v0.1.5) (2021-09-22)
+
+
+### Features
+
+* working newcar component ([e7230e7](https://github.com/justinwilliamsrva/cartracker/commit/e7230e7b799fc6cf5373b75696068dda6cee6f45))
+
 ### [0.1.4](https://github.com/justinwilliamsrva/cartracker/compare/v0.1.3...v0.1.4) (2021-09-22)
 
 ### [0.1.3](https://github.com/justinwilliamsrva/cartracker/compare/v0.1.2...v0.1.3) (2021-09-22)
