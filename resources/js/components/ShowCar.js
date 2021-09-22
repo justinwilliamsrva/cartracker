@@ -118,7 +118,7 @@ export default class ShowCar extends Component {
                             <h1 className="text-center p-3 mb-3">
                                 {this.state.cars
                                     ? "Select a Vehicle"
-                                    :   useHistory().push("/newcar");}
+                                    :   useHistory().push("/newcar")}
                             </h1>
                         )}
                     </div>
