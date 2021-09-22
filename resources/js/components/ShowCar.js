@@ -3,6 +3,7 @@ import RenderCars from "./RenderCars";
 import { BrowswerRouter, Link } from "react-router-dom";
 import Maintenance from "./Maintenance/Maintenance";
 import Footer from "./Footer";
+import { useHistory } from "react-router-dom";
 
 export default class ShowCar extends Component {
     constructor(props) {
@@ -100,6 +101,7 @@ export default class ShowCar extends Component {
         this.getCars();
     }
 
+  
     render() {
         let x = this.state.mileage;
         console.log(this.props);
@@ -114,8 +116,9 @@ export default class ShowCar extends Component {
                             </h1>
                         ) : (
                             <h1 className="text-center p-3 mb-3">
-                                Select a Vehicle <br className="md:hidden" />
-                                or Add a New One
+                                {this.state.cars
+                                    ? "Select a Vehicle"
+                                    :   useHistory().push("/newcar");}
                             </h1>
                         )}
                     </div>
