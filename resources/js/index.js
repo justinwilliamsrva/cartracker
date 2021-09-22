@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
 import TaskEdit from "./components/TaskEdit";
-import ShowCar from "./components/ShowCar";
+import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
+import NewCar from "./components/Newcar/NewCar";
 import "../../resources/css/index.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -13,9 +14,9 @@ if (document.getElementById("root")) {
     ReactDOM.render(
         <Router>
             <Switch>
-                <Route exact path="/newcar" component={App} />
-                <Route exact path="/dashboard" component={ShowCar} />
-                <Route exact path="/home" component={ShowCar} />
+                <Route exact path="/newcar" component={NewCar} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/home" component={Dashboard} />
                 <Route exact path="/:id/edit" component={TaskEdit} />
                 {/* <ShowCar /> */}
 

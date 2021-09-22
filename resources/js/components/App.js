@@ -133,12 +133,15 @@ class App extends Component {
                                             className="form-control"
                                             id="exampleFormControlSelect1"
                                             required
+                                            min="0"
+                                            max="50"
+                                            step="2"
                                         >
-                                            <option>2016</option>
+                                            {/* <option>2016</option>
                                             <option>2017</option>
                                             <option>2018</option>
                                             <option>2019</option>
-                                            <option>2020</option>
+                                            <option>2020</option> */}
                                         </select>
                                     </div>
                                     <div className="form-group">

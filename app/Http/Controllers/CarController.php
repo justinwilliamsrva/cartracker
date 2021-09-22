@@ -32,7 +32,8 @@ class CarController extends Controller
     public function store(Request $request)
     {
         //validation
-        $this->validate($request, ['year' => 'required', 'make' => 'required|max:30', 'model' => 'required|max:30', 'mileage' => 'required|max:10']);
+
+        $this->validate($request, ['year' => 'required', 'make' => 'required|max:30', 'model' => 'required|max:30', 'mileage' => 'required|max:10',  'yearly_mileage' => 'required', 'transmission' => 'required', 'drivetrain' => 'required',]);
         //create a new car based on user cars relationship
 
         $car = $request->user()->cars()->create([
@@ -40,6 +41,38 @@ class CarController extends Controller
             'make' => $request->make,
             'model' => $request->model,
             'mileage' => $request->mileage,
+            'yearly_mileage' => $request->yearly_mileage,
+            'vin' => $request->vin,
+            'ex_color' => $request->ex_color,
+            'in_color' => $request->yearly_mileage,
+            'drivetrain' => $request->drivetrain,
+            'transmission' => $request->transmission,
+            'cylinders' => $request->cylinders,
+            'type' => $request->type,
+            'doors' => $request->doors,
+            'tire_size' => $request->tire_size,
+            'date_purchase' => $request->date_purchase,
+            'air_filter_cabin' => $request->air_filter_cabin,
+            'air_filter_engine' => $request->air_filter_engine,
+            'battery' => $request->battery,
+            'brake_fluid' => $request->brake_fluid,
+            'brake_pads_front' => $request->brake_pads_front,
+            'brake_rotors_front' => $request->brake_rotors_front,
+            'brake_pads_rear' => $request->brake_pads_rear,
+            'brake_rotors_rear' => $request->brake_rotors_rear,
+            'coolant_flush' => $request->coolant_flush,
+            'dif_fluid' => $request->dif_fluid,
+            'engine_oil' => $request->engine_oil,
+            'engine_oil_filter' => $request->engine_oil_filter,
+            'power_steering_fluid' => $request->power_steering_fluid,
+            'spark_plugs' => $request->spark_plugs,
+            'tran_fluid' => $request->tran_fluid,
+            'tires_front_driver' => $request->tires_front_driver,
+            'tires_front_passenger' => $request->tires_front_passenger,
+            'tires_rear_driver' => $request->tires_rear_driver,
+            'tires_rear_passenger' => $request->tires_rear_passenger,
+            'windshield_wipers' => $request->windshield_wipers,
+
 
         ]);
         //return car with user object
