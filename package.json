@@ -8,6 +8,7 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
+        "release": "standard-version",
         "start": "webpack-dev-server --hot –history-api-fallback"
     },
     "devDependencies": {
