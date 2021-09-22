@@ -25,9 +25,10 @@ export default class TaskEdit extends Component {
         const target = e.target;
         const value = target.value;
         const name = target.name;
-
+        console.log(value);
         this.setState({ [name]: value });
     }
+
     handleSubmit(e) {
         e.preventDefault();
         axios

@@ -18,7 +18,9 @@ export default class ShowCar extends Component {
             cars: [],
         };
         this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleMileage = this.handleMileage.bind(this);
+
         this.renderTasks = this.renderTasks.bind(this);
         // this.handleDelete = this.handleDelete.bind(this);
     }
@@ -30,6 +32,24 @@ export default class ShowCar extends Component {
     //     //make delete request to the backend
     //     axios.delete(`/cars/${id}`);
     // }
+
+    handleMileage(e) {
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        console.log(name, value);
+        this.setState({ [name]: value });
+    }
+    handleSubmit(e) {
+        // e.preventDefault();
+        axios
+            .put(`/cars/${this.state.id}`, {
+                mileage: this.state.mileage,
+            })
+            .then(() => {
+                this.getCars();
+            });
+    }
 
     handleChange(car) {
         this.setState({
@@ -112,10 +132,32 @@ export default class ShowCar extends Component {
                 <div className="container ">
                     <div>
                         {this.state.id ? (
-                            <h1 className="text-center p-3 mb-3">
-                                {this.state.year} {this.state.make}{" "}
-                                {this.state.model}
-                            </h1>
+                            <div className="  text-center p-3 mb-3">
+                                <h1 className="">
+                                    {this.state.year} {this.state.make}{" "}
+                                    {this.state.model}
+                                </h1>
+
+                                <div className="grid justify-items-center form mt-1">
+                                    <form onSubmit={this.handleSubmit}>
+                                        <label htmlFor="exampleFormControlInput1">
+                                            Current Mileage:
+                                        </label>
+                                        <input
+                                            name="mileage"
+                                            onChange={this.handleMileage}
+                                            defaultValue={this.state.mileage}
+                                            type="number"
+                                            className="form-control"
+                                            id="exampleFormControlInput1"
+                                            min={0}
+                                        />
+                                        <button className="btn btn-sm btn-primary mt-1">
+                                            Update Mileage
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         ) : (
                             <h1 className="text-center p-3 mb-3">
                                 {this.state.cars
@@ -174,8 +216,11 @@ export default class ShowCar extends Component {
                                     </div>
                                     <div className="card-body maintenances">
                                         {this.state.id ? (
-                                            <div className=" grid  sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                                                <div className="p-2">
+                                            <div
+                                                id="vehicle-info-tables"
+                                                className=" grid  sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
+                                            >
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -192,7 +237,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -210,7 +255,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -227,7 +272,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -245,7 +290,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -263,7 +308,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -280,7 +325,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -297,7 +342,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -314,7 +359,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -331,7 +376,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -348,7 +393,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
@@ -365,7 +410,7 @@ export default class ShowCar extends Component {
                                                         </thead>
                                                     </table>
                                                 </div>
-                                                <div className="p-2">
+                                                <div className="p-1">
                                                     <table className="table table-bordered table-sm">
                                                         <thead>
                                                             <tr>
