@@ -119,7 +119,7 @@ export default class ShowCar extends Component {
                         ) : (
                             <h1 className="text-center p-3 mb-3">
                                 {this.state.cars
-                                    ? "Select a Vehicle"
+                                    ? "Vehicle Dashboard"
                                     : useHistory().push("/newcar")}
                             </h1>
                         )}
@@ -146,20 +146,20 @@ export default class ShowCar extends Component {
                                     </div>
                                 </div>
                             </div>
-                            {this.state.id && (
-                                <div className="md:col-span-1 lg:col-span-2">
-                                    <div className="card shadow-md  h-100">
-                                        <div className="card-header">
-                                            <h2>
-                                                Vehicle Info
-                                                <div className="float-right">
-                                                    <Link
-                                                        to={`/${this.state.id}/edit`}
-                                                        className="btn btn-sm btn-primary mr-1"
-                                                    >
-                                                        Update
-                                                    </Link>
-                                                    {/* <a
+
+                            <div className="md:col-span-1 lg:col-span-2">
+                                <div className="card shadow-md  h-100">
+                                    <div className="card-header">
+                                        <h2>
+                                            Vehicle Info
+                                            <div className="float-right">
+                                                <Link
+                                                    to={`/${this.state.id}/edit`}
+                                                    className="btn btn-sm btn-primary mr-1"
+                                                >
+                                                    Update
+                                                </Link>
+                                                {/* <a
                                                         onClick={() =>
                                                             this.handleDelete(
                                                                 this.state.id
@@ -169,226 +169,239 @@ export default class ShowCar extends Component {
                                                     >
                                                         Delete
                                                     </a> */}
+                                            </div>
+                                        </h2>
+                                    </div>
+                                    <div className="card-body maintenances">
+                                        {this.state.id ? (
+                                            <div className=" grid  sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Last Updated
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
                                                 </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Yearly
+                                                                    Mileage
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    VIN Number
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Exterior
+                                                                    Color
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Interior
+                                                                    Color
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Drivetrain
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Transmission
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Cylinders
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Type
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Doors
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Tire Size
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                <div className="p-2">
+                                                    <table className="table table-bordered table-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    className="w-50"
+                                                                    scope="col"
+                                                                >
+                                                                    Date
+                                                                    Purchased
+                                                                </th>
+                                                                <td scope="col">
+                                                                    LAst Week
+                                                                </td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <h2 className="text-center m-auto">
+                                                Select a Vehicle
                                             </h2>
-                                        </div>
-                                        <div className="card-body maintenances grid  sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-                                            <div className="p-2">
-                                                <table className="table table-bordered table-sm">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">
-                                                                Last Updated
-                                                            </th>
-                                                            <th scope="col">
-                                                                LAst Week
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
-                                            </div>
-
-                                            {/* <div className="text-xl  flex items-center ">
-                                            Mileage - {this.state.mileage}
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Exterior Color - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Interior Color - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Vin - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Doors - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            DriveTrain - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Type - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Cylinders - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Yearly Mileage - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Transmission - 1,000,000
-                                        </div>
-                                        <div className="text-xl  flex items-center ">
-                                            Date Purchased - 1,000,000
-                                        </div> */}
-                                        </div>
+                                        )}
                                     </div>
                                 </div>
-                            )}
+                            </div>
                         </div>
 
-                        {this.state.id && (
-                            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mt-3">
-                                <div className=" md:col-span-1 lg:col-span-1">
-                                    <div className="card shadow-md ">
-                                        <div className="card-header">
-                                            <h2>Status</h2>
-                                        </div>
-                                        <div className="card-body maintenances">
+                        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mt-3">
+                            <div className=" md:col-span-1 lg:col-span-1">
+                                <div className="card shadow-md ">
+                                    <div className="card-header">
+                                        <h2>Status</h2>
+                                    </div>
+                                    <div className="card-body maintenances">
+                                        {this.state.id ? (
                                             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-1 gap-2 ">
                                                 <div>
                                                     <div className="text-white bg-green-500  rounded-t  px-4 py-2 text-center">
@@ -417,22 +430,24 @@ export default class ShowCar extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="md:col-span-1 lg:col-span-2 ">
-                                    <div className="card shadow-md  ">
-                                        <div className="card-header ">
-                                            <h2>Maintenance Records</h2>
-                                        </div>
-
-                                        <Maintenance
-                                            mileage={this.state.mileage}
-                                        />
+                                        ) : (
+                                            <h2 className="text-center m-auto">
+                                                Select a Vehicle
+                                            </h2>
+                                        )}
                                     </div>
                                 </div>
                             </div>
-                        )}
+                            <div className="md:col-span-1 lg:col-span-2 ">
+                                <div className="card shadow-md  ">
+                                    <div className="card-header ">
+                                        <h2>Maintenance Records</h2>
+                                    </div>
+
+                                    <Maintenance mileage={this.state.mileage} />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>
