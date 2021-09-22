@@ -146,7 +146,7 @@ export default class ShowCar extends Component {
                                         <input
                                             name="mileage"
                                             onChange={this.handleMileage}
-                                            defaultValue={this.state.mileage}
+                                            value={this.state.mileage}
                                             type="number"
                                             className="form-control"
                                             id="exampleFormControlInput1"
@@ -160,11 +160,7 @@ export default class ShowCar extends Component {
                             </div>
                         ) : (
                             <h1 className="text-center p-3 mb-3">
-                                {!this.state.cars ? (
-                                    <Redirect to="/newcar" />
-                                ) : (
-                                    "Vehicle Dashboard"
-                                )}
+                                Vehicle Dashboard
                             </h1>
                         )}
                     </div>
