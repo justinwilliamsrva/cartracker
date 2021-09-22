@@ -14,14 +14,51 @@ export default class Dashboard extends Component {
             make: "",
             model: "",
             mileage: "",
+            yearly_mileage: "",
+            vin: "",
+            ex_color: "",
+            in_color: "",
+            drivetrain: "",
+            transmission: "",
+            cylinders: "",
+            type: "",
+            doors: "",
+            tire_size: "",
+            date_purchased: "",
+            air_filter_cabin: "",
+            air_filter_engine: "",
+            battery: "",
+            brake_fluid: "",
+            brake_pads_front: "",
+            brake_rotors_front: "",
+            brake_pads_rear: "",
+            brake_rotors_rear: "",
+            coolant_flush: "",
+            dif_fluid: "",
+            engine_oil: "",
+            engine_oil_filter: "",
+            power_steering_fluid: "",
+            spark_plugs: "",
+            tran_fluid: "",
+            tires_front_driver: "",
+            tires_front_passenger: "",
+            tires_rear_driver: "",
+            tires_rear_passenger: "",
+            windshield_wipers: "",
+            updated_at: "",
             car: [],
             cars: [],
+            green: "",
+            yellow: "",
+            red: "",
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleMileage = this.handleMileage.bind(this);
 
         this.renderTasks = this.renderTasks.bind(this);
+        this.showColor = this.showColor.bind(this);
+
         // this.handleDelete = this.handleDelete.bind(this);
     }
     // handleDelete(id) {
@@ -58,6 +95,19 @@ export default class Dashboard extends Component {
             make: car.make,
             model: car.model,
             mileage: car.mileage,
+            yearly_mileage: car.yearly_mileage,
+            vin: car.vin,
+            ex_color: car.ex_color,
+            in_color: car.in_color,
+
+            drivetrain: car.drivetrain,
+            transmission: car.transmission,
+            cylinders: car.cylinders,
+            type: car.type,
+            doors: car.doors,
+            tire_size: car.tire_size,
+            date_purchased: car.date_purchased,
+            updated_at: car.updated_at,
         });
     }
 
@@ -131,6 +181,11 @@ export default class Dashboard extends Component {
     //     this.getCars();
     // }
 
+    // color function
+    showColor(data) {
+        this.setState({ green: data });
+    }
+
     render() {
         // let history = useHistory();
         console.log(this.props);
@@ -147,7 +202,7 @@ export default class Dashboard extends Component {
 
                                 <div className=" flex justify-center form mt-1">
                                     <form
-                                        className="flex flex-row  justify-around"
+                                        className="flex flex-row  justify-around items-center"
                                         onSubmit={this.handleSubmit}
                                     >
                                         <input
@@ -236,7 +291,10 @@ export default class Dashboard extends Component {
                                                                     Last Updated
                                                                 </th>
                                                                 <td scope="col">
-                                                                    LAst Week
+                                                                    {this.state.updated_at.slice(
+                                                                        0,
+                                                                        10
+                                                                    )}
                                                                 </td>
                                                             </tr>
                                                         </thead>
@@ -254,7 +312,11 @@ export default class Dashboard extends Component {
                                                                     Mileage
                                                                 </th>
                                                                 <td scope="col">
-                                                                    LAst Week
+                                                                    {
+                                                                        this
+                                                                            .state
+                                                                            .yearly_mileage
+                                                                    }
                                                                 </td>
                                                             </tr>
                                                         </thead>
@@ -270,9 +332,21 @@ export default class Dashboard extends Component {
                                                                 >
                                                                     VIN Number
                                                                 </th>
-                                                                <td scope="col">
-                                                                    LAst Week
-                                                                </td>
+                                                                {this.state
+                                                                    .vin ===
+                                                                1 ? (
+                                                                    <td scope="col">
+                                                                        {
+                                                                            this
+                                                                                .state
+                                                                                .vin
+                                                                        }
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                )}
                                                             </tr>
                                                         </thead>
                                                     </table>
@@ -288,9 +362,21 @@ export default class Dashboard extends Component {
                                                                     Exterior
                                                                     Color
                                                                 </th>
-                                                                <td scope="col">
-                                                                    LAst Week
-                                                                </td>
+                                                                {this.state
+                                                                    .ex_color ===
+                                                                1 ? (
+                                                                    <td scope="col">
+                                                                        {
+                                                                            this
+                                                                                .state
+                                                                                .ex_color
+                                                                        }
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                )}
                                                             </tr>
                                                         </thead>
                                                     </table>
@@ -306,9 +392,21 @@ export default class Dashboard extends Component {
                                                                     Interior
                                                                     Color
                                                                 </th>
-                                                                <td scope="col">
-                                                                    LAst Week
-                                                                </td>
+                                                                {this.state
+                                                                    .in_color ===
+                                                                1 ? (
+                                                                    <td scope="col">
+                                                                        {
+                                                                            this
+                                                                                .state
+                                                                                .in_color
+                                                                        }
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                )}
                                                             </tr>
                                                         </thead>
                                                     </table>
@@ -324,7 +422,11 @@ export default class Dashboard extends Component {
                                                                     Drivetrain
                                                                 </th>
                                                                 <td scope="col">
-                                                                    LAst Week
+                                                                    {
+                                                                        this
+                                                                            .state
+                                                                            .drivetrain
+                                                                    }
                                                                 </td>
                                                             </tr>
                                                         </thead>
@@ -341,7 +443,11 @@ export default class Dashboard extends Component {
                                                                     Transmission
                                                                 </th>
                                                                 <td scope="col">
-                                                                    LAst Week
+                                                                    {
+                                                                        this
+                                                                            .state
+                                                                            .transmission
+                                                                    }
                                                                 </td>
                                                             </tr>
                                                         </thead>
@@ -357,9 +463,21 @@ export default class Dashboard extends Component {
                                                                 >
                                                                     Cylinders
                                                                 </th>
-                                                                <td scope="col">
-                                                                    LAst Week
-                                                                </td>
+                                                                {this.state
+                                                                    .cylinders ===
+                                                                1 ? (
+                                                                    <td scope="col">
+                                                                        {
+                                                                            this
+                                                                                .state
+                                                                                .cylinders
+                                                                        }
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                )}
                                                             </tr>
                                                         </thead>
                                                     </table>
@@ -374,9 +492,21 @@ export default class Dashboard extends Component {
                                                                 >
                                                                     Type
                                                                 </th>
-                                                                <td scope="col">
-                                                                    LAst Week
-                                                                </td>
+                                                                {this.state
+                                                                    .type ===
+                                                                1 ? (
+                                                                    <td scope="col">
+                                                                        {
+                                                                            this
+                                                                                .state
+                                                                                .type
+                                                                        }
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                )}
                                                             </tr>
                                                         </thead>
                                                     </table>
@@ -391,9 +521,21 @@ export default class Dashboard extends Component {
                                                                 >
                                                                     Doors
                                                                 </th>
-                                                                <td scope="col">
-                                                                    LAst Week
-                                                                </td>
+                                                                {this.state
+                                                                    .doors ===
+                                                                1 ? (
+                                                                    <td scope="col">
+                                                                        {
+                                                                            this
+                                                                                .state
+                                                                                .doors
+                                                                        }
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                )}
                                                             </tr>
                                                         </thead>
                                                     </table>
@@ -408,9 +550,21 @@ export default class Dashboard extends Component {
                                                                 >
                                                                     Tire Size
                                                                 </th>
-                                                                <td scope="col">
-                                                                    LAst Week
-                                                                </td>
+                                                                {this.state
+                                                                    .tire_size ===
+                                                                1 ? (
+                                                                    <td scope="col">
+                                                                        {
+                                                                            this
+                                                                                .state
+                                                                                .tire_size
+                                                                        }
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                )}
                                                             </tr>
                                                         </thead>
                                                     </table>
@@ -426,9 +580,21 @@ export default class Dashboard extends Component {
                                                                     Date
                                                                     Purchased
                                                                 </th>
-                                                                <td scope="col">
-                                                                    LAst Week
-                                                                </td>
+                                                                {this.state
+                                                                    .date_purchased ===
+                                                                1 ? (
+                                                                    <td scope="col">
+                                                                        {
+                                                                            this
+                                                                                .state
+                                                                                .date_purchased
+                                                                        }
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                )}
                                                             </tr>
                                                         </thead>
                                                     </table>
@@ -494,7 +660,11 @@ export default class Dashboard extends Component {
                                         <h2>Maintenance Records</h2>
                                     </div>
 
-                                    <Maintenance mileage={this.state.mileage} />
+                                    <Maintenance
+                                        mileage={this.state.mileage}
+                                        showColor={this.showColor}
+                                        // green={this.state.green}
+                                    />
                                 </div>
                             </div>
                         </div>

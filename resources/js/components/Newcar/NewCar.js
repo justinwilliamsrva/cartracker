@@ -129,6 +129,7 @@ export default class NewCar extends Component {
                 yearly_mileage: this.state.yearly_mileage,
                 vin: this.state.vin,
                 ex_color: this.state.ex_color,
+                in_color: this.state.in_color,
                 drivetrain: this.state.drivetrain,
                 transmission: this.state.transmission,
                 cylinders: this.state.cylinders,
