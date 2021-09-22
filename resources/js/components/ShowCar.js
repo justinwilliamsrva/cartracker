@@ -110,9 +110,16 @@ export default class ShowCar extends Component {
         axios
             .get("/cars")
             // .then((response) => console.log(response))
-            .then((response) =>
-                this.setState({ cars: [...response.data.cars] })
-            );
+            .then((response) => {
+                this.setState({ cars: [...response.data.cars] });
+                console.log(
+                    typeof response.data.cars.length,
+                    response.data.cars.length
+                );
+                if (response.data.cars.length === 0) {
+                    useHistory().push("/newcar");
+                }
+            });
     }
 
     //lifecycle method
@@ -138,21 +145,21 @@ export default class ShowCar extends Component {
                                     {this.state.model}
                                 </h1>
 
-                                <div className="grid justify-items-center form mt-1">
-                                    <form onSubmit={this.handleSubmit}>
-                                        <label htmlFor="exampleFormControlInput1">
-                                            Current Mileage:
-                                        </label>
+                                <div className=" flex justify-center form mt-1">
+                                    <form
+                                        className="flex flex-row  justify-around"
+                                        onSubmit={this.handleSubmit}
+                                    >
                                         <input
                                             name="mileage"
                                             onChange={this.handleMileage}
                                             value={this.state.mileage}
                                             type="number"
-                                            className="form-control"
+                                            className="form-control w-50 "
                                             id="exampleFormControlInput1"
                                             min={0}
                                         />
-                                        <button className="btn btn-sm btn-primary mt-1">
+                                        <button className="btn btn-sm btn-primary mb-1">
                                             Update Mileage
                                         </button>
                                     </form>
