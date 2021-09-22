@@ -46,8 +46,8 @@ export default class ShowCar extends Component {
             return mileage < 40000 ? " car is working fine" : " fix me now";
         }
         return this.state.cars.map((car) => (
-            <>
-                <div key={car.id} className="grid grid-cols-2 mb-2 mt-2">
+            <div key={car.id}>
+                <div className="grid grid-cols-2 mb-2 mt-2">
                     <button
                         onClick={() => this.handleChange(car)}
                         className=" rounded p-2 mr-1 bg-blue-500"
@@ -70,22 +70,22 @@ export default class ShowCar extends Component {
                     </div>
                 </div>
                 <hr className="m-0 border-4" />
-            </>
+            </div>
         ));
     }
-    getTasks() {
-        axios.get(`/cars/5/edit`).then((response) => {
-            console.log("response", response);
-            this.setState({
-                id: response.data.id,
-                car: response.data.car,
-                year: response.data.car.year,
-                make: response.data.car.make,
-                model: response.data.car.model,
-                mileage: response.data.car.mileage,
-            });
-        });
-    }
+    // getTasks() {
+    //     axios.get(`/cars/5/edit`).then((response) => {
+    //         console.log("response", response);
+    //         this.setState({
+    //             id: response.data.id,
+    //             car: response.data.car,
+    //             year: response.data.car.year,
+    //             make: response.data.car.make,
+    //             model: response.data.car.model,
+    //             mileage: response.data.car.mileage,
+    //         });
+    //     });
+    // }
     getCars() {
         axios
             .get("/cars")
@@ -97,11 +97,13 @@ export default class ShowCar extends Component {
 
     //lifecycle method
     componentDidMount() {
-        this.getTasks();
+        // this.getTasks();
+        this.getCars();
+    }
+    componentWillUnmount() {
         this.getCars();
     }
 
-  
     render() {
         let x = this.state.mileage;
         console.log(this.props);
@@ -118,7 +120,7 @@ export default class ShowCar extends Component {
                             <h1 className="text-center p-3 mb-3">
                                 {this.state.cars
                                     ? "Select a Vehicle"
-                                    :   useHistory().push("/newcar")}
+                                    : useHistory().push("/newcar")}
                             </h1>
                         )}
                     </div>
@@ -172,7 +174,7 @@ export default class ShowCar extends Component {
                                         </div>
                                         <div className="card-body maintenances grid  sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -186,7 +188,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -200,7 +202,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -214,7 +216,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -228,7 +230,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -242,7 +244,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -256,7 +258,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -270,7 +272,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -284,7 +286,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -298,7 +300,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -312,7 +314,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -326,7 +328,7 @@ export default class ShowCar extends Component {
                                                 </table>
                                             </div>
                                             <div className="p-2">
-                                                <table class="table table-bordered table-sm">
+                                                <table className="table table-bordered table-sm">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">
@@ -392,7 +394,7 @@ export default class ShowCar extends Component {
                                                     <div className="text-white bg-green-500  rounded-t  px-4 py-2 text-center">
                                                         Up-to-date
                                                     </div>
-                                                    <div class="border border-t-0 border-green-400  font-bold text-3xl rounded-b   px-1 py-1 text-green-500 text-center">
+                                                    <div className="border border-t-0 border-green-400  font-bold text-3xl rounded-b   px-1 py-1 text-green-500 text-center">
                                                         <p>22</p>
                                                     </div>
                                                 </div>
@@ -401,7 +403,7 @@ export default class ShowCar extends Component {
                                                     <div className="text-white bg-yellow-500  rounded-t  px-4 py-2 text-center">
                                                         Due Soon
                                                     </div>
-                                                    <div class="border border-t-0 border-yellow-400  font-bold text-3xl rounded-b   px-1 py-1 text-yellow-500 text-center">
+                                                    <div className="border border-t-0 border-yellow-400  font-bold text-3xl rounded-b   px-1 py-1 text-yellow-500 text-center">
                                                         <p>1</p>
                                                     </div>
                                                 </div>
@@ -410,7 +412,7 @@ export default class ShowCar extends Component {
                                                     <div className="text-white bg-red-500  rounded-t  px-4 py-2 text-center">
                                                         Past-due
                                                     </div>
-                                                    <div class="border border-t-0 border-red-400  font-bold text-3xl rounded-b   px-1 py-1 text-red-500 text-center">
+                                                    <div className="border border-t-0 border-red-400  font-bold text-3xl rounded-b   px-1 py-1 text-red-500 text-center">
                                                         <p>0</p>
                                                     </div>
                                                 </div>
