@@ -8,7 +8,8 @@ export default class FormMaintenance extends Component {
         }
         return (
             <>
-                <h2 className="text-center">Filters</h2>
+                <h2 className="text-center">Maintenance History</h2>
+                <h3 className="text-center">Filters</h3>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">
                         Air Filter - Cabin
@@ -41,7 +42,7 @@ export default class FormMaintenance extends Component {
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">
-                        Engine Oil - Filter
+                        Engine Oil Filter
                     </label>
                     <input
                         name="engine_oil_filter"
@@ -54,7 +55,7 @@ export default class FormMaintenance extends Component {
                         min={0}
                     />
                 </div>
-                <h2 className="text-center">Fluids</h2>
+                <h3 className="text-center">Fluids</h3>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">
                         Brake Fluid
@@ -141,7 +142,7 @@ export default class FormMaintenance extends Component {
                         min={0}
                     />
                 </div>
-                <h2>Brakes</h2>
+                <h3 className="text-center">Brakes</h3>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">
                         Brake Pads - Front
@@ -202,7 +203,7 @@ export default class FormMaintenance extends Component {
                         min={0}
                     />
                 </div>
-                <h2 className="text-center">Tires</h2>
+                <h3 className="text-center">Tires</h3>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">
                         Tires: Driver-Front
@@ -263,7 +264,7 @@ export default class FormMaintenance extends Component {
                         min={0}
                     />
                 </div>
-                <h2 className="text-center">Miscellaneous</h2>
+                <h3 className="text-center">Miscellaneous</h3>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">Battery</label>
                     <input

@@ -169,8 +169,11 @@ export default class NewCar extends Component {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-md-8">
-                            <h1>Add a vehicle</h1>
-                            Step {this.state.currentStep}
+                            <h1 className="text-center">Add a Vehicle</h1>
+                            <hr className="my-2" />
+                            Page {this.state.currentStep}/3
+                            {/* {this.previousButton}
+                            {this.nextButton} */}
                             <form onSubmit={this.handleSubmit}>
                                 {/* // Render the form steps and pass in the required props */}
                                 <FormBasic

@@ -11,6 +11,7 @@ export default class FormBasic extends Component {
         // http://www.carqueryapi.com/demo/dependant-selects-and-car-data-display/
         return (
             <>
+                <h2 className="text-center">Vehicle Information</h2>
                 <div className="form-group">
                     <label htmlFor="year">Year</label>
                     <select

@@ -8,6 +8,7 @@ export default class FormInfo extends Component {
         }
         return (
             <>
+             <h2 className="text-center">Vehicle Details</h2>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">
                         Exterior Color
