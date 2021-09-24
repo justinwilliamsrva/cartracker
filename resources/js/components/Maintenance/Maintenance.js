@@ -1,57 +1,46 @@
-import React, { useEffect } from "react";
 import AirFilterCabin from "./MaintenanceItems/AirFilterCabin";
 import AirFilterEngine from "./MaintenanceItems/AirFilterEngine";
 
-export default function Maintenance(props) {
-    let x = 1;
-    function showGreen(data) {
-        props.showColor(data);
-    }
-    function getGreen(x) {
-        return x;
-    }
+import React, { Component } from "react";
 
-    useEffect(() => {
-        showGreen(getGreen(1));
-    }, []);
-
-    return (
-        <div className=" maintenance card-body  ">
-            {props.mileage ? (
-                <div className=" grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                    <AirFilterCabin
-                        mileage={props.mileage}
-                        yearly_mileage={props.early_mileage}
-                        air_filter_cabin={props.air_filter_cabin}
-                        // green={props.green}
-                        getGreen={getGreen}
-                        yellow={props.yellow}
-                        red={props.red}
-                    />
-                    <AirFilterEngine mileage={props.mileage} />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin mileage={props.mileage} />
-                    <AirFilterEngine mileage={props.mileage} />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin mileage={props.mileage} />
-                    <AirFilterEngine mileage={props.mileage} />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                    <AirFilterCabin />
-                </div>
-            ) : (
-                <h2 className="text-center m-auto">Select a Vehicle</h2>
-            )}
-        </div>
-    );
+export default class Maintenance extends Component {
+    render() {
+        return (
+            <div className=" maintenance card-body  ">
+                {this.props.afc_color ? (
+                    <div className=" grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                        <AirFilterCabin
+                            mileage={this.props.mileage}
+                            yearly_mileage={this.props.early_mileage}
+                            air_filter_cabin={this.props.air_filter_cabin}
+                            afc_color={this.props.afc_color}
+                            // color={this.color}
+                        />
+                        <AirFilterEngine />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterEngine />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterEngine />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                        <AirFilterCabin />
+                    </div>
+                ) : (
+                    <h2 className="text-center m-auto">Select a Vehicle</h2>
+                )}
+            </div>
+        );
+    }
 }

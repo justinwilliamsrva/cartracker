@@ -48,16 +48,17 @@ export default class Dashboard extends Component {
             updated_at: "",
             car: [],
             cars: [],
-            green: "",
-            yellow: "",
-            red: "",
+            afc_color: "",
+            green: 0,
+            yellow: 0,
+            red: 0,
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleMileage = this.handleMileage.bind(this);
-
+        this.color = this.color.bind(this);
         this.renderTasks = this.renderTasks.bind(this);
-        this.showColor = this.showColor.bind(this);
+        // this.showColor = this.showColor.bind(this);
 
         // this.handleDelete = this.handleDelete.bind(this);
     }
@@ -74,8 +75,9 @@ export default class Dashboard extends Component {
         const target = e.target;
         const value = target.value;
         const name = target.name;
-        console.log(name, value);
+        // console.log(name, value);
         this.setState({ [name]: value });
+        // this.color(this.state.air_filter_cabin, this.state.mileage);
     }
     handleSubmit(e) {
         e.preventDefault();
@@ -85,41 +87,93 @@ export default class Dashboard extends Component {
             })
             .then(() => {
                 this.getCars();
+                this.color(this.state.air_filter_cabin, this.state.mileage);
             });
+    }
+    color(x, y) {
+        if (y > x - 1000 && y < x) {
+            this.setState({
+                afc_color: "bg-yellow-500",
+            });
+        } else if (x > y) {
+            this.setState({
+                afc_color: "bg-green-500",
+            });
+        } else {
+            this.setState({
+                afc_color: "bg-red-500",
+            });
+        }
     }
 
     handleChange(car) {
-        this.setState({
-            id: car.id,
-            year: car.year,
-            make: car.make,
-            model: car.model,
-            mileage: car.mileage,
-            yearly_mileage: car.yearly_mileage,
-            vin: car.vin,
-            ex_color: car.ex_color,
-            in_color: car.in_color,
+        // console.log(this.state.air_filter_cabin, this.state.mileage);
 
-            drivetrain: car.drivetrain,
-            transmission: car.transmission,
-            cylinders: car.cylinders,
-            type: car.type,
-            doors: car.doors,
-            tire_size: car.tire_size,
-            date_purchased: car.date_purchased,
-            updated_at: car.updated_at,
-        });
+        this.setState(
+            {
+                id: car.id,
+                year: car.year,
+                make: car.make,
+                model: car.model,
+                mileage: car.mileage,
+                yearly_mileage: car.yearly_mileage,
+                vin: car.vin,
+                ex_color: car.ex_color,
+                in_color: car.in_color,
+                drivetrain: car.drivetrain,
+                transmission: car.transmission,
+                cylinders: car.cylinders,
+                type: car.type,
+                doors: car.doors,
+                tire_size: car.tire_size,
+                date_purchased: car.date_purchased,
+                updated_at: car.updated_at,
+                air_filter_cabin: car.air_filter_cabin,
+                air_filter_engine: car.air_filter_engine,
+                battery: car.battery,
+                brake_fluid: car.brake_fluid,
+                brake_pads_front: car.brake_pads_front,
+                brake_rotors_front: car.brake_rotors_front,
+                brake_pads_rear: car.brake_pads_rear,
+                brake_rotors_rear: car.brake_rotors_rear,
+                coolant_flush: car.coolant_flush,
+                dif_fluid: car.dif_fluid,
+                engine_oil: car.engine_oil,
+                engine_oil_filter: car.engine_oil_filter,
+                power_steering_fluid: car.power_steering_fluid,
+                spark_plugs: car.spark_plugs,
+                tran_fluid: car.tran_fluid,
+                tires_front_driver: car.tires_front_driver,
+                tires_front_passenger: car.tires_front_passenger,
+                tires_rear_driver: car.tires_rear_driver,
+                tires_rear_passenger: car.tires_rear_passenger,
+                windshield_wipers: car.windshield_wipers,
+            },
+            () => {
+                this.color(this.state.air_filter_cabin, this.state.mileage);
+                console.log(
+                    this.state.air_filter_cabin,
+                    this.state.mileage,
+                    this.afc_color
+                );
+            }
+        );
     }
+
+    airFilter() {}
 
     renderTasks() {
         function overdueWork(mileage) {
             return mileage < 40000 ? " car is working fine" : " fix me now";
         }
+
         return this.state.cars.map((car) => (
             <div key={car.id}>
                 <div className="grid grid-cols-2 mb-2 mt-2">
                     <button
-                        onClick={() => this.handleChange(car)}
+                        onClick={() => {
+                            this.handleChange(car);
+                        }}
                         className=" rounded p-2 mr-1 bg-blue-500"
                     >
                         {" "}
@@ -132,6 +186,7 @@ export default class Dashboard extends Component {
                         <p className="mb-0 text-center">
                             Status: {overdueWork(car.mileage)} <br /> last
                             updated on {car.updated_at.slice(0, 10)}
+                            {}
                         </p>
 
                         {/* <p className="text-muted ">
@@ -162,10 +217,10 @@ export default class Dashboard extends Component {
             // .then((response) => console.log(response))
             .then((response) => {
                 this.setState({ cars: [...response.data.cars] });
-                console.log(
-                    typeof response.data.cars.length,
-                    response.data.cars.length
-                );
+                // console.log(
+                //     typeof response.data.cars.length,
+                //     response.data.cars.length
+                // );
                 if (response.data.cars.length === 0) {
                     this.props.history.push("/newcar");
                 }
@@ -177,18 +232,8 @@ export default class Dashboard extends Component {
         // this.getTasks();
         this.getCars();
     }
-    // componentWillUnmount() {
-    //     this.getCars();
-    // }
-
-    // color function
-    showColor(data) {
-        this.setState({ green: data });
-    }
 
     render() {
-        // let history = useHistory();
-        console.log(this.props);
         return (
             <>
                 <div className="container ">
@@ -611,7 +656,7 @@ export default class Dashboard extends Component {
                         </div>
 
                         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mt-3">
-                            <div className=" md:col-span-1 lg:col-span-1">
+                            {/* <div className=" md:col-span-1 lg:col-span-1">
                                 <div className="card shadow-md ">
                                     <div className="card-header">
                                         <h2>Status</h2>
@@ -624,7 +669,9 @@ export default class Dashboard extends Component {
                                                         Up-to-date
                                                     </div>
                                                     <div className="border border-t-0 border-green-400  font-bold text-3xl rounded-b   px-1 py-1 text-green-500 text-center">
-                                                        <p>22</p>
+                                                        <p>
+                                                            {this.state.green}
+                                                        </p>
                                                     </div>
                                                 </div>
 
@@ -633,7 +680,9 @@ export default class Dashboard extends Component {
                                                         Due Soon
                                                     </div>
                                                     <div className="border border-t-0 border-yellow-400  font-bold text-3xl rounded-b   px-1 py-1 text-yellow-500 text-center">
-                                                        <p>1</p>
+                                                        <p>
+                                                            {this.state.yellow}
+                                                        </p>
                                                     </div>
                                                 </div>
 
@@ -642,7 +691,7 @@ export default class Dashboard extends Component {
                                                         Past-due
                                                     </div>
                                                     <div className="border border-t-0 border-red-400  font-bold text-3xl rounded-b   px-1 py-1 text-red-500 text-center">
-                                                        <p>0</p>
+                                                        <p>{this.state.red}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -653,18 +702,17 @@ export default class Dashboard extends Component {
                                         )}
                                     </div>
                                 </div>
-                            </div>
-                            <div className="md:col-span-1 lg:col-span-2 ">
+                            </div> */}
+                            <div className="md:col-span-1 lg:col-span-3 ">
                                 <div className="card shadow-md  ">
                                     <div className="card-header ">
                                         <h2>Maintenance Records</h2>
                                     </div>
-
-                                    <Maintenance
-                                        mileage={this.state.mileage}
-                                        showColor={this.showColor}
-                                        // green={this.state.green}
-                                    />
+                                    <div className="p-2">
+                                        <Maintenance
+                                            afc_color={this.state.afc_color}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
