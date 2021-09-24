@@ -49,6 +49,9 @@ export default class Dashboard extends Component {
             car: [],
             cars: [],
             afc_color: "",
+            afe_color: "",
+            battery_color: "",
+
             green: 0,
             yellow: 0,
             red: 0,
@@ -56,7 +59,9 @@ export default class Dashboard extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleMileage = this.handleMileage.bind(this);
-        this.color = this.color.bind(this);
+        this.colorAFC = this.colorAFC.bind(this);
+        this.colorAFE = this.colorAFE.bind(this);
+
         this.renderTasks = this.renderTasks.bind(this);
         // this.showColor = this.showColor.bind(this);
 
@@ -87,10 +92,33 @@ export default class Dashboard extends Component {
             })
             .then(() => {
                 this.getCars();
-                this.color(this.state.air_filter_cabin, this.state.mileage);
+                this.colorAFC(
+                    this.showNextAFC(
+                        this.state.air_filter_cabin,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorAFE(
+                    this.showNextAFE(
+                        this.state.air_filter_engine,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorBAT(
+                    this.showNextBAT(
+                        this.state.battery,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
             });
     }
-    color(x, y) {
+    colorAFC(x, y) {
         if (y > x - 1000 && y < x) {
             this.setState({
                 afc_color: "bg-yellow-500",
@@ -103,6 +131,73 @@ export default class Dashboard extends Component {
             this.setState({
                 afc_color: "bg-red-500",
             });
+        }
+    }
+
+    showNextAFC(x, y) {
+        let j = parseInt(y);
+
+        if (!x && j > 15000) {
+            return parseInt(j) - 500;
+        } else if (!x && j < 15000) {
+            return 15000;
+        } else {
+            return x + 15000;
+        }
+    }
+
+    colorAFE(x, y) {
+        if (y > x - 1000 && y < x) {
+            this.setState({
+                afe_color: "bg-yellow-500",
+            });
+        } else if (x > y) {
+            this.setState({
+                afe_color: "bg-green-500",
+            });
+        } else {
+            this.setState({
+                afe_color: "bg-red-500",
+            });
+        }
+    }
+
+    showNextAFE(x, y) {
+        let j = parseInt(y);
+
+        if (!x && j > 12000) {
+            return parseInt(j) - 500;
+        } else if (!x && j < 12000) {
+            return 12000;
+        } else {
+            return x + 12000;
+        }
+    }
+
+    colorBAT(x, y) {
+        if (y > x - 1000 && y < x) {
+            this.setState({
+                battery_color: "bg-yellow-500",
+            });
+        } else if (x > y) {
+            this.setState({
+                battery_color: "bg-green-500",
+            });
+        } else {
+            this.setState({
+                battery_color: "bg-red-500",
+            });
+        }
+    }
+    showNextBAT(x, y, i) {
+        let j = parseInt(y);
+
+        if (!x && j > i * 4) {
+            return parseInt(j) - 500;
+        } else if (!x && j <= i * 4) {
+            return i * 4;
+        } else {
+            return i * 4 + x;
         }
     }
 
@@ -150,17 +245,34 @@ export default class Dashboard extends Component {
                 windshield_wipers: car.windshield_wipers,
             },
             () => {
-                this.color(this.state.air_filter_cabin, this.state.mileage);
-                console.log(
-                    this.state.air_filter_cabin,
-                    this.state.mileage,
-                    this.afc_color
+                // this.showNexvar;
+                this.colorAFC(
+                    this.showNextAFC(
+                        this.state.air_filter_cabin,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorAFE(
+                    this.showNextAFE(
+                        this.state.air_filter_engine,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorBAT(
+                    this.showNextBAT(
+                        this.state.battery,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
                 );
             }
         );
     }
-
-    airFilter() {}
 
     renderTasks() {
         function overdueWork(mileage) {
@@ -710,7 +822,33 @@ export default class Dashboard extends Component {
                                     </div>
                                     <div className="p-2">
                                         <Maintenance
+                                            air_filter_cabin={
+                                                this.state.air_filter_cabin
+                                            }
                                             afc_color={this.state.afc_color}
+                                            shownextAFC={this.showNextAFC(
+                                                this.state.air_filter_cabin,
+                                                this.state.mileage,
+                                                this.state.yearly_mileage
+                                            )}
+                                            air_filter_engine={
+                                                this.state.air_filter_engine
+                                            }
+                                            afe_color={this.state.afe_color}
+                                            shownextAFE={this.showNextAFE(
+                                                this.state.air_filter_engine,
+                                                this.state.mileage,
+                                                this.state.yearly_mileage
+                                            )}
+                                            battery={this.state.battery}
+                                            shownextBAT={this.showNextBAT(
+                                                this.state.battery,
+                                                this.state.mileage,
+                                                this.state.yearly_mileage
+                                            )}
+                                            battery_color={
+                                                this.state.battery_color
+                                            }
                                         />
                                     </div>
                                 </div>
