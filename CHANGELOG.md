@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/justinwilliamsrva/cartracker/compare/v0.1.8...v0.1.9) (2021-09-24)
+
+
+### Features
+
+* can change the color based on the milage ([9244009](https://github.com/justinwilliamsrva/cartracker/commit/9244009c928e58a14e063a2c76533942e724d399))
+
 ### [0.1.8](https://github.com/justinwilliamsrva/cartracker/compare/v0.1.7...v0.1.8) (2021-09-22)
 
 
