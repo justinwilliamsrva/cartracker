@@ -158,14 +158,20 @@ export default class Dashboard extends Component {
 
     colorAFE(x, y) {
         if (x > y - 1000 && y > x) {
+            console.log(x, y);
+
             this.setState({
                 afe_color: "bg-yellow-500",
             });
         } else if (x > y) {
+            console.log(x, y);
+
             this.setState({
                 afe_color: "bg-green-500",
             });
         } else {
+            console.log(x, y);
+
             this.setState({
                 afe_color: "bg-red-500",
             });
@@ -213,19 +219,19 @@ export default class Dashboard extends Component {
 
     colorBrakeFluid(x, y) {
         if (x > y - 1000 && y > x) {
-            console.log(x, y);
+            // console.log(x, y);
             //(1);
             this.setState({
                 brake_fluid_color: "bg-yellow-500",
             });
         } else if (x > y) {
-            console.log(x, y);
+            // console.log(x, y);
 
             this.setState({
                 brake_fluid_color: "bg-green-500",
             });
         } else {
-            console.log(x, y);
+            // console.log(x, y);
 
             this.setState({
                 brake_fluid_color: "bg-red-500",
