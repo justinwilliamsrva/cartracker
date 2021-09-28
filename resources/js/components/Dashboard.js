@@ -129,7 +129,7 @@ export default class Dashboard extends Component {
             });
     }
     colorAFC(x, y) {
-        if (y > x - 1000 && y < x) {
+        if (x > y - 1000 && y > x) {
             this.setState({
                 afc_color: "bg-yellow-500",
             });
@@ -157,7 +157,7 @@ export default class Dashboard extends Component {
     }
 
     colorAFE(x, y) {
-        if (y > x - 1000 && y < x) {
+        if (x > y - 1000 && y > x) {
             this.setState({
                 afe_color: "bg-yellow-500",
             });
@@ -185,7 +185,7 @@ export default class Dashboard extends Component {
     }
 
     colorBAT(x, y) {
-        if (y > x - 1000 && y < x) {
+        if (x > y - 1000 && y > x) {
             this.setState({
                 battery_color: "bg-yellow-500",
             });
@@ -212,18 +212,21 @@ export default class Dashboard extends Component {
     }
 
     colorBrakeFluid(x, y) {
-        if (y > x - 1000 && y < x) {
+        if (x > y - 1000 && y > x) {
+            console.log(x, y);
             //(1);
             this.setState({
                 brake_fluid_color: "bg-yellow-500",
             });
         } else if (x > y) {
-            //(2);
+            console.log(x, y);
+
             this.setState({
                 brake_fluid_color: "bg-green-500",
             });
         } else {
-            //(3);
+            console.log(x, y);
+
             this.setState({
                 brake_fluid_color: "bg-red-500",
             });
