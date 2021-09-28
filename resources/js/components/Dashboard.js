@@ -241,17 +241,17 @@ export default class Dashboard extends Component {
     shownextBrakeFluid(x, y, i) {
         let j = parseInt(y);
 
-        if (!x && j > i * 2) {
+        if (!x && j > i * 3) {
             //(parseInt(j) - 500);
             return parseInt(j) - 500;
-        } else if (!x && j <= i * 2) {
+        } else if (!x && j <= i * 3) {
             //(i * 2);
 
-            return i * 2;
+            return i * 3;
         } else {
             //(i * 2 + x);
 
-            return i * 2 + x;
+            return i * 3 + x;
         }
     }
 
