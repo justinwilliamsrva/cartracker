@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.11](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.10...v0.3.11) (2021-09-28)
+
+
+### Bug Fixes
+
+* bug with yellow is now working ([2abd933](https://github.com/justinwilliamsrva/cartracker/commit/2abd9336e4fdfa2162476b181f9f2b4460a425f6))
+
 ### [0.3.10](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.9...v0.3.10) (2021-09-28)
 
 
