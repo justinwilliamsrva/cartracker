@@ -10,9 +10,13 @@ export default class AirFilterCabin extends Component {
                         <tr>
                             <th
                                 scope="col"
-                                className={this.props.afc_color}
-                            ></th>
-                            <th scope="col">Air Filter - Cabin</th>
+                                className={`w-1/3 ${this.props.afc_color}`}
+                            >
+                                {this.props.shownext - this.props.mileage}
+                            </th>
+                            <th scope="col" className="w-2/3">
+                                Air Filter - Cabin
+                            </th>
                         </tr>
                     </thead>
                     <tbody>

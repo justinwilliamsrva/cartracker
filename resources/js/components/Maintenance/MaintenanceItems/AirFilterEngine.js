@@ -9,9 +9,13 @@ export default class AirFilterEngine extends Component {
                         <tr>
                             <th
                                 scope="col"
-                                className={this.props.afe_color}
-                            ></th>
-                            <th scope="col">Air Filter - Engine</th>
+                                className={`w-1/3 ${this.props.afe_color}`}
+                            >
+                                {this.props.shownext - this.props.mileage}
+                            </th>
+                            <th scope="col" className="w-2/3">
+                                Air Filter - Engine
+                            </th>
                         </tr>
                     </thead>
                     <tbody>

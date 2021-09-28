@@ -51,6 +51,7 @@ export default class Dashboard extends Component {
             afc_color: "",
             afe_color: "",
             battery_color: "",
+            brake_fluid_color: "",
 
             green: 0,
             yellow: 0,
@@ -61,7 +62,8 @@ export default class Dashboard extends Component {
         this.handleMileage = this.handleMileage.bind(this);
         this.colorAFC = this.colorAFC.bind(this);
         this.colorAFE = this.colorAFE.bind(this);
-
+        this.colorBAT = this.colorBAT.bind(this);
+        this.colorBrakeFluid = this.colorBrakeFluid.bind(this);
         this.renderTasks = this.renderTasks.bind(this);
         // this.showColor = this.showColor.bind(this);
 
@@ -111,6 +113,14 @@ export default class Dashboard extends Component {
                 this.colorBAT(
                     this.showNextBAT(
                         this.state.battery,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorBrakeFluid(
+                    this.shownextBrakeFluid(
+                        this.state.brake_fluid,
                         this.state.mileage,
                         this.state.yearly_mileage
                     ),
@@ -201,6 +211,41 @@ export default class Dashboard extends Component {
         }
     }
 
+    colorBrakeFluid(x, y) {
+        if (y > x - 1000 && y < x) {
+            //(1);
+            this.setState({
+                brake_fluid_color: "bg-yellow-500",
+            });
+        } else if (x > y) {
+            //(2);
+            this.setState({
+                brake_fluid_color: "bg-green-500",
+            });
+        } else {
+            //(3);
+            this.setState({
+                brake_fluid_color: "bg-red-500",
+            });
+        }
+    }
+    shownextBrakeFluid(x, y, i) {
+        let j = parseInt(y);
+
+        if (!x && j > i * 2) {
+            //(parseInt(j) - 500);
+            return parseInt(j) - 500;
+        } else if (!x && j <= i * 2) {
+            //(i * 2);
+
+            return i * 2;
+        } else {
+            //(i * 2 + x);
+
+            return i * 2 + x;
+        }
+    }
+
     handleChange(car) {
         // console.log(this.state.air_filter_cabin, this.state.mileage);
 
@@ -265,6 +310,14 @@ export default class Dashboard extends Component {
                 this.colorBAT(
                     this.showNextBAT(
                         this.state.battery,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorBrakeFluid(
+                    this.shownextBrakeFluid(
+                        this.state.brake_fluid,
                         this.state.mileage,
                         this.state.yearly_mileage
                     ),
@@ -822,6 +875,11 @@ export default class Dashboard extends Component {
                                     </div>
                                     <div className="p-2">
                                         <Maintenance
+                                            mileage={this.state.mileage}
+                                            yearly_mileage={
+                                                this.state.yearly_mileage
+                                            }
+                                            //cabin
                                             air_filter_cabin={
                                                 this.state.air_filter_cabin
                                             }
@@ -831,6 +889,7 @@ export default class Dashboard extends Component {
                                                 this.state.mileage,
                                                 this.state.yearly_mileage
                                             )}
+                                            //engine
                                             air_filter_engine={
                                                 this.state.air_filter_engine
                                             }
@@ -840,6 +899,7 @@ export default class Dashboard extends Component {
                                                 this.state.mileage,
                                                 this.state.yearly_mileage
                                             )}
+                                            //battery
                                             battery={this.state.battery}
                                             shownextBAT={this.showNextBAT(
                                                 this.state.battery,
@@ -848,6 +908,16 @@ export default class Dashboard extends Component {
                                             )}
                                             battery_color={
                                                 this.state.battery_color
+                                            }
+                                            //brake
+                                            brake_fluid={this.state.brake_fluid}
+                                            shownextBrakeFluid={this.shownextBrakeFluid(
+                                                this.state.brake_fluid,
+                                                this.state.mileage,
+                                                this.state.yearly_mileage
+                                            )}
+                                            brake_fluid_color={
+                                                this.state.brake_fluid_color
                                             }
                                         />
                                     </div>

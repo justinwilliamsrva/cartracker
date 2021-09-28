@@ -5,7 +5,7 @@ import TaskEdit from "./components/TaskEdit";
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
 import NewCar from "./components/Newcar/NewCar";
-import "../../resources/css/index.css";
+import "../../public/css/index.css";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { setWith } from "lodash";
