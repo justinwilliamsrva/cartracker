@@ -4,6 +4,7 @@ import Battery from "./MaintenanceItems/Battery";
 import BrakeFluid from "./MaintenanceItems/BrakeFluid";
 
 import React, { Component } from "react";
+import MaintenanceItem from "./MaintenanceItems/MaintenanceItem";
 
 export default class Maintenance extends Component {
     render() {
@@ -39,24 +40,14 @@ export default class Maintenance extends Component {
                             brake_fluid_color={this.props.brake_fluid_color}
                             shownextBrakeFluid={this.props.shownextBrakeFluid}
                         />
-                        {/* <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterEngine />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterEngine />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin />
-                        <AirFilterCabin /> */}
+                        <MaintenanceItem
+                            name="Brake Pads - Front"
+                            mileage={this.props.mileage}
+                            yearly_mileage={this.props.yearly_mileage}
+                            last={this.props.brake_pads_front}
+                            color={this.props.brake_pad_front_color}
+                            shownext={this.props.shownextBrakePadFront}
+                        />
                     </div>
                 ) : (
                     <h2 className="text-center m-auto">Select a Vehicle</h2>

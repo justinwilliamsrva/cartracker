@@ -52,6 +52,7 @@ export default class Dashboard extends Component {
             afe_color: "",
             battery_color: "",
             brake_fluid_color: "",
+            brake_pad_front_color: "",
 
             green: 0,
             yellow: 0,
@@ -64,6 +65,7 @@ export default class Dashboard extends Component {
         this.colorAFE = this.colorAFE.bind(this);
         this.colorBAT = this.colorBAT.bind(this);
         this.colorBrakeFluid = this.colorBrakeFluid.bind(this);
+        this.colorBrakePadFront = this.colorBrakePadFront(this);
         this.renderTasks = this.renderTasks.bind(this);
         // this.showColor = this.showColor.bind(this);
 
@@ -121,6 +123,14 @@ export default class Dashboard extends Component {
                 this.colorBrakeFluid(
                     this.shownextBrakeFluid(
                         this.state.brake_fluid,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorBrakePadFront(
+                    this.shownextBrakePadFront(
+                        this.state.brake_pads_front,
                         this.state.mileage,
                         this.state.yearly_mileage
                     ),
@@ -214,6 +224,33 @@ export default class Dashboard extends Component {
             return i * 4;
         } else {
             return i * 4 + x;
+        }
+    }
+    colorBrakePadFront(x, y) {
+        if (x > y - 1000 && y > x) {
+            this.setState({
+                brake_pad_front_color: "bg-yellow-500",
+            });
+        } else if (x > y) {
+            this.setState({
+                brake_pad_front_color: "bg-green-500",
+            });
+        } else {
+            this.setState({
+                brake_pad_front_color: "bg-red-500",
+            });
+        }
+    }
+
+    shownextBrakePadFront(x, y, i) {
+        let j = parseInt(y);
+
+        if (!x && j > 20000) {
+            return parseInt(j) - 500;
+        } else if (!x && j < 20000) {
+            return 20000;
+        } else {
+            return x + 20000;
         }
     }
 
@@ -324,6 +361,14 @@ export default class Dashboard extends Component {
                     ),
                     this.state.mileage
                 );
+                // this.colorBrakePadFront(
+                //     this.shownextBrakePadFront(
+                //         this.state.brake_pads_front,
+                //         this.state.mileage,
+                //         this.state.yearly_mileage
+                //     ),
+                //     this.state.mileage
+                // );
                 this.colorBrakeFluid(
                     this.shownextBrakeFluid(
                         this.state.brake_fluid,
@@ -555,15 +600,15 @@ export default class Dashboard extends Component {
                                                                     .vin ===
                                                                 1 ? (
                                                                     <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
                                                                         {
                                                                             this
                                                                                 .state
                                                                                 .vin
                                                                         }
-                                                                    </td>
-                                                                ) : (
-                                                                    <td scope="col">
-                                                                        N/A
                                                                     </td>
                                                                 )}
                                                             </tr>
@@ -585,15 +630,15 @@ export default class Dashboard extends Component {
                                                                     .ex_color ===
                                                                 1 ? (
                                                                     <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
                                                                         {
                                                                             this
                                                                                 .state
                                                                                 .ex_color
                                                                         }
-                                                                    </td>
-                                                                ) : (
-                                                                    <td scope="col">
-                                                                        N/A
                                                                     </td>
                                                                 )}
                                                             </tr>
@@ -615,15 +660,15 @@ export default class Dashboard extends Component {
                                                                     .in_color ===
                                                                 1 ? (
                                                                     <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
                                                                         {
                                                                             this
                                                                                 .state
                                                                                 .in_color
                                                                         }
-                                                                    </td>
-                                                                ) : (
-                                                                    <td scope="col">
-                                                                        N/A
                                                                     </td>
                                                                 )}
                                                             </tr>
@@ -686,15 +731,15 @@ export default class Dashboard extends Component {
                                                                     .cylinders ===
                                                                 1 ? (
                                                                     <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
                                                                         {
                                                                             this
                                                                                 .state
                                                                                 .cylinders
                                                                         }
-                                                                    </td>
-                                                                ) : (
-                                                                    <td scope="col">
-                                                                        N/A
                                                                     </td>
                                                                 )}
                                                             </tr>
@@ -715,15 +760,15 @@ export default class Dashboard extends Component {
                                                                     .type ===
                                                                 1 ? (
                                                                     <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
                                                                         {
                                                                             this
                                                                                 .state
                                                                                 .type
                                                                         }
-                                                                    </td>
-                                                                ) : (
-                                                                    <td scope="col">
-                                                                        N/A
                                                                     </td>
                                                                 )}
                                                             </tr>
@@ -744,15 +789,15 @@ export default class Dashboard extends Component {
                                                                     .doors ===
                                                                 1 ? (
                                                                     <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
                                                                         {
                                                                             this
                                                                                 .state
                                                                                 .doors
                                                                         }
-                                                                    </td>
-                                                                ) : (
-                                                                    <td scope="col">
-                                                                        N/A
                                                                     </td>
                                                                 )}
                                                             </tr>
@@ -773,15 +818,15 @@ export default class Dashboard extends Component {
                                                                     .tire_size ===
                                                                 1 ? (
                                                                     <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
                                                                         {
                                                                             this
                                                                                 .state
                                                                                 .tire_size
                                                                         }
-                                                                    </td>
-                                                                ) : (
-                                                                    <td scope="col">
-                                                                        N/A
                                                                     </td>
                                                                 )}
                                                             </tr>
@@ -803,15 +848,15 @@ export default class Dashboard extends Component {
                                                                     .date_purchased ===
                                                                 1 ? (
                                                                     <td scope="col">
+                                                                        N/A
+                                                                    </td>
+                                                                ) : (
+                                                                    <td scope="col">
                                                                         {
                                                                             this
                                                                                 .state
                                                                                 .date_purchased
                                                                         }
-                                                                    </td>
-                                                                ) : (
-                                                                    <td scope="col">
-                                                                        N/A
                                                                     </td>
                                                                 )}
                                                             </tr>
@@ -927,6 +972,17 @@ export default class Dashboard extends Component {
                                             )}
                                             brake_fluid_color={
                                                 this.state.brake_fluid_color
+                                            }
+                                            brake_pads_front={
+                                                this.state.brake_pads_front
+                                            }
+                                            shownextBrakePadFront={this.shownextBrakePadFront(
+                                                this.state.brake_pads_front,
+                                                this.state.mileage,
+                                                this.state.yearly_mileage
+                                            )}
+                                            brake_pad_front_color={
+                                                this.state.brake_pad_front_color
                                             }
                                         />
                                     </div>
