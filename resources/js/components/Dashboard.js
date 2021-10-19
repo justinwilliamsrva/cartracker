@@ -251,7 +251,8 @@ export default class Dashboard extends Component {
             this.setState({
                 brake_pad_front_color: "bg-green-500",
             });
-        // } else { console.log(x, y);
+        } else {
+            //  console.log(x, y);
             this.setState({
            
 
