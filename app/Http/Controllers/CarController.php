@@ -51,7 +51,7 @@ class CarController extends Controller
             'type' => $request->type,
             'doors' => $request->doors,
             'tire_size' => $request->tire_size,
-            'date_purchase' => $request->date_purchase,
+            'date_purchased' => $request->date_purchased,
             'air_filter_cabin' => $request->air_filter_cabin,
             'air_filter_engine' => $request->air_filter_engine,
             'battery' => $request->battery,

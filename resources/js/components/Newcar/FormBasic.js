@@ -178,7 +178,7 @@ export default class FormBasic extends Component {
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">
-                        Date Purchase
+                        Date Purchased
                     </label>
                     <input
                         name="date_purchased"

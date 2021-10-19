@@ -53,6 +53,8 @@ export default class Dashboard extends Component {
             battery_color: "",
             brake_fluid_color: "",
             brake_pad_front_color: "",
+            brake_rotor_front_color: "",
+
 
             green: 0,
             yellow: 0,
@@ -66,6 +68,8 @@ export default class Dashboard extends Component {
         this.colorBAT = this.colorBAT.bind(this);
         this.colorBrakeFluid = this.colorBrakeFluid.bind(this);
         // this.colorBrakePadFront = this.colorBrakePadFront(this);
+        // this.colorBrakeRotorFront = this.colorBrakeRotorFront(this);
+
         this.renderTasks = this.renderTasks.bind(this);
         // this.showColor = this.showColor.bind(this);
 
@@ -131,6 +135,14 @@ export default class Dashboard extends Component {
                 this.colorBrakePadFront(
                     this.shownextBrakePadFront(
                         this.state.brake_pads_front,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorBrakeRotorFront(
+                    this.shownextBrakeRotorFront(
+                        this.state.brake_rotors_front,
                         this.state.mileage,
                         this.state.yearly_mileage
                     ),
@@ -228,18 +240,18 @@ export default class Dashboard extends Component {
     }
     colorBrakePadFront(x, y) {
         if (x > y - 1000 && y > x) {
-            console.log(x, y);
+            // console.log(x, y);
 
             this.setState({
                 brake_pad_front_color: "bg-yellow-500",
             });
         } else if (x > y) {
-            console.log(x, y);
+            // console.log(x, y);
 
             this.setState({
                 brake_pad_front_color: "bg-green-500",
             });
-        } else { console.log(x, y);
+        // } else { console.log(x, y);
             this.setState({
            
 
@@ -251,12 +263,12 @@ export default class Dashboard extends Component {
     shownextBrakePadFront(x, y, i) {
         let j = parseInt(y);
 
-        if (!x && j > 50000) {
+        if (!x && j > 35000) {
             return parseInt(j) - 500;
-        } else if (!x && j < 50000) {
-            return 50000;
+        } else if (!x && j < 35000) {
+            return 35000;
         } else {
-            return x + 50000;
+            return x + 35000;
         }
     }
 
@@ -297,6 +309,40 @@ export default class Dashboard extends Component {
             return i * 3 + x;
         }
     }
+    colorBrakeRotorFront(x, y) {
+        if (x > y - 1000 && y > x) {
+            console.log(x, y);
+
+            this.setState({
+                brake_rotor_front_color: "bg-yellow-500",
+            });
+        } else if (x > y) {
+            console.log(x, y);
+
+            this.setState({
+                brake_rotor_front_color: "bg-green-500",
+            });
+        } else { console.log(x, y);
+            this.setState({
+           
+
+                brake_rotor_front_color: "bg-red-500",
+            });
+        }
+    }
+
+    shownextBrakeRotorFront(x, y, i) {
+        let j = parseInt(y);
+
+        if (!x && j > 70000) {
+            return parseInt(j) - 500;
+        } else if (!x && j < 75000) {
+            return 75000;
+        } else {
+            return x + 70000;
+        }
+    }
+    
 
     handleChange(car) {
         // console.log(this.state.air_filter_cabin, this.state.mileage);
@@ -378,6 +424,14 @@ export default class Dashboard extends Component {
                 this.colorBrakeFluid(
                     this.shownextBrakeFluid(
                         this.state.brake_fluid,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorBrakeRotorFront(
+                    this.shownextBrakeRotorFront(
+                        this.state.brake_rotors_front,
                         this.state.mileage,
                         this.state.yearly_mileage
                     ),
@@ -989,6 +1043,18 @@ export default class Dashboard extends Component {
                                             )}
                                             brake_pad_front_color={
                                                 this.state.brake_pad_front_color
+                                            }
+                                            //rotors
+                                            brake_rotors_front={
+                                                this.state.brake_rotors_front
+                                            }
+                                            shownextBrakeRotorFront={this.shownextBrakeRotorFront(
+                                                this.state.brake_rotors_front,
+                                                this.state.mileage,
+                                                this.state.yearly_mileage
+                                            )}
+                                            brake_rotor_front_color={
+                                                this.state.brake_rotor_front_color
                                             }
                                         />
                                     </div>

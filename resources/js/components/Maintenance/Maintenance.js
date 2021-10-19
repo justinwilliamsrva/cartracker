@@ -48,6 +48,14 @@ export default class Maintenance extends Component {
                             color={this.props.brake_pad_front_color}
                             shownext={this.props.shownextBrakePadFront}
                         />
+                           <MaintenanceItem
+                            name="Brake Rotors - Front"
+                            mileage={this.props.mileage}
+                            yearly_mileage={this.props.yearly_mileage}
+                            last={this.props.brake_rotors_front}
+                            color={this.props.brake_rotor_front_color}
+                            shownext={this.props.shownextBrakeRotorFront}
+                        />
                     </div>
                 ) : (
                     <h2 className="text-center m-auto">Select a Vehicle</h2>
