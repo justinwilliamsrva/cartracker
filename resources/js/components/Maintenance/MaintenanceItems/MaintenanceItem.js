@@ -21,7 +21,7 @@ export default class MaintenanceItem extends Component {
                     <tbody>
                         <tr>
                             <th scope="row">Last Service</th>
-                            <td>{this.props.last} miles</td>
+                            <td>{this.props.last === 0 ? 'Never Performed'  : this.props.last + " miles" }</td>
                         </tr>
                         <tr>
                             <th scope="row">Next Service</th>
