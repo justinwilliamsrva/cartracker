@@ -80,7 +80,7 @@ h1 {
 	width: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.2);
 	position: absolute;
 }
 
@@ -120,7 +120,7 @@ padding: 10px 20px;
     <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0"> -->
       
 <section class="showcase">
-@if (Route::has('login'))
+<!-- @if (Route::has('login'))
         <div id="home-nav"class="content fixed top-0 right-0 px-6 py-4 sm:block">
             @auth
             <a href="{{ url('/dashboard') }}" class="text-lg text-white underline">Dashboard</a>
@@ -133,14 +133,14 @@ padding: 10px 20px;
             @endauth
         
         </div>
-        @endif
+        @endif -->
 
     <div class="video-container">
         <video src="/assets/carvideo.mp4" autoplay muted loop></video>
     </div>
-    <div class="content"><h1>Passport</h1><h3>A Practical Car Maintenance Tracker</h3><a href="#about" class="btn">About</a></div>
+    <div class="content"><h1>passport</h1><h3>A Practical Car Maintenance Tracker</h3><a href="/dashboard" class="btn">Enter</a></div>
 </section>
-<section id="about"><h1>ABout</h1></section>
+<!-- <section id="about"><h1>ABout</h1></section> -->
 
     <!-- </div> -->
 </body>

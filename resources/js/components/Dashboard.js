@@ -65,7 +65,7 @@ export default class Dashboard extends Component {
         this.colorAFE = this.colorAFE.bind(this);
         this.colorBAT = this.colorBAT.bind(this);
         this.colorBrakeFluid = this.colorBrakeFluid.bind(this);
-        this.colorBrakePadFront = this.colorBrakePadFront(this);
+        // this.colorBrakePadFront = this.colorBrakePadFront(this);
         this.renderTasks = this.renderTasks.bind(this);
         // this.showColor = this.showColor.bind(this);
 
@@ -228,15 +228,21 @@ export default class Dashboard extends Component {
     }
     colorBrakePadFront(x, y) {
         if (x > y - 1000 && y > x) {
+            console.log(x, y);
+
             this.setState({
                 brake_pad_front_color: "bg-yellow-500",
             });
         } else if (x > y) {
+            console.log(x, y);
+
             this.setState({
                 brake_pad_front_color: "bg-green-500",
             });
-        } else {
+        } else { console.log(x, y);
             this.setState({
+           
+
                 brake_pad_front_color: "bg-red-500",
             });
         }
@@ -245,12 +251,12 @@ export default class Dashboard extends Component {
     shownextBrakePadFront(x, y, i) {
         let j = parseInt(y);
 
-        if (!x && j > 20000) {
+        if (!x && j > 50000) {
             return parseInt(j) - 500;
-        } else if (!x && j < 20000) {
-            return 20000;
+        } else if (!x && j < 50000) {
+            return 50000;
         } else {
-            return x + 20000;
+            return x + 50000;
         }
     }
 
@@ -361,14 +367,14 @@ export default class Dashboard extends Component {
                     ),
                     this.state.mileage
                 );
-                // this.colorBrakePadFront(
-                //     this.shownextBrakePadFront(
-                //         this.state.brake_pads_front,
-                //         this.state.mileage,
-                //         this.state.yearly_mileage
-                //     ),
-                //     this.state.mileage
-                // );
+                this.colorBrakePadFront(
+                    this.shownextBrakePadFront(
+                        this.state.brake_pads_front,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
                 this.colorBrakeFluid(
                     this.shownextBrakeFluid(
                         this.state.brake_fluid,
