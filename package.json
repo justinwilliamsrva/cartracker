@@ -1,6 +1,6 @@
 {
     "private": true,
-    "version": "0.3.26",
+    "version": "0.3.27",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
