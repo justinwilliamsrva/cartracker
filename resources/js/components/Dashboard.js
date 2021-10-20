@@ -54,8 +54,7 @@ export default class Dashboard extends Component {
             brake_fluid_color: "",
             brake_pad_front_color: "",
             brake_rotor_front_color: "",
-            coolant_flush_color:"",
-
+            coolant_flush_color: "",
 
             green: 0,
             yellow: 0,
@@ -157,7 +156,6 @@ export default class Dashboard extends Component {
                     ),
                     this.state.mileage
                 );
-                
             });
     }
     colorAFC(x, y) {
@@ -264,8 +262,6 @@ export default class Dashboard extends Component {
         } else {
             //  console.log(x, y);
             this.setState({
-           
-
                 brake_pad_front_color: "bg-red-500",
             });
         }
@@ -333,10 +329,9 @@ export default class Dashboard extends Component {
             this.setState({
                 brake_rotor_front_color: "bg-green-500",
             });
-        } else { console.log(x, y);
+        } else {
+            console.log(x, y);
             this.setState({
-           
-
                 brake_rotor_front_color: "bg-red-500",
             });
         }
@@ -367,10 +362,8 @@ export default class Dashboard extends Component {
                 coolant_flush_color: "bg-green-500",
             });
         } else {
-             console.log(x, y);
+            console.log(x, y);
             this.setState({
-           
-
                 coolant_flush_color: "bg-red-500",
             });
         }
@@ -387,8 +380,6 @@ export default class Dashboard extends Component {
             return x + 30000;
         }
     }
-    
-    
 
     handleChange(car) {
         // console.log(this.state.air_filter_cabin, this.state.mileage);
@@ -1039,7 +1030,17 @@ export default class Dashboard extends Component {
                             <div className="md:col-span-1 lg:col-span-3 ">
                                 <div className="card shadow-md  ">
                                     <div className="card-header ">
-                                        <h2>Maintenance Records</h2>
+                                        <h2>
+                                            Maintenance Records
+                                            <div className="float-right">
+                                                <Link
+                                                    to={`/${this.state.id}/edit`}
+                                                    className="btn btn-sm btn-primary mr-1"
+                                                >
+                                                    Update
+                                                </Link>
+                                            </div>
+                                        </h2>
                                     </div>
                                     <div className="p-2">
                                         <Maintenance
@@ -1108,7 +1109,8 @@ export default class Dashboard extends Component {
                                                 this.state.yearly_mileage
                                             )}
                                             brake_rotor_front_color={
-                                                this.state.brake_rotor_front_color
+                                                this.state
+                                                    .brake_rotor_front_color
                                             }
                                             //coolant
                                             coolant_flush={

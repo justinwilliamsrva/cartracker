@@ -12,33 +12,41 @@ export default class Maintenance extends Component {
             <div className=" maintenance card-body  ">
                 {this.props.afc_color ? (
                     <div className=" grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-                        <AirFilterCabin
+                        <MaintenanceItem
+                            name="Air Filter - Cabin"
+
                             mileage={this.props.mileage}
                             yearly_mileage={this.props.yearly_mileage}
-                            air_filter_cabin={this.props.air_filter_cabin}
-                            afc_color={this.props.afc_color}
+                            last={this.props.air_filter_cabin}
+                            color={this.props.afc_color}
                             shownext={this.props.shownextAFC}
                         />
-                        <AirFilterEngine
+                        <MaintenanceItem
+                            name="Air Filter - Engine"
+
                             mileage={this.props.mileage}
                             yearly_mileage={this.props.yearly_mileage}
-                            air_filter_engine={this.props.air_filter_engine}
-                            afe_color={this.props.afe_color}
+                            last={this.props.air_filter_engine}
+                            color={this.props.afe_color}
                             shownext={this.props.shownextAFE}
                         />
-                        <Battery
+                        <MaintenanceItem
+                            name="Battery"
+
                             mileage={this.props.mileage}
                             yearly_mileage={this.props.yearly_mileage}
-                            battery={this.props.battery}
-                            battery_color={this.props.battery_color}
+                            last={this.props.battery}
+                           color={this.props.battery_color}
                             shownext={this.props.shownextBAT}
                         />
-                        <BrakeFluid
+                        <MaintenanceItem
+                            name="Brake Fluid"
+
                             mileage={this.props.mileage}
                             yearly_mileage={this.props.yearly_mileage}
-                            brake_fluid={this.props.brake_fluid}
-                            brake_fluid_color={this.props.brake_fluid_color}
-                            shownextBrakeFluid={this.props.shownextBrakeFluid}
+                            last={this.props.brake_fluid}
+                            color={this.props.brake_fluid_color}
+                            shownext={this.props.shownextBrakeFluid}
                         />
                         <MaintenanceItem
                             name="Brake Pads - Front"
