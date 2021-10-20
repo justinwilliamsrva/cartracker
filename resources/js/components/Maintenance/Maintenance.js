@@ -56,6 +56,14 @@ export default class Maintenance extends Component {
                             color={this.props.brake_rotor_front_color}
                             shownext={this.props.shownextBrakeRotorFront}
                         />
+                              <MaintenanceItem
+                            name="Coolant Flush"
+                            mileage={this.props.mileage}
+                            yearly_mileage={this.props.yearly_mileage}
+                            last={this.props.coolant_flush}
+                            color={this.props.coolant_flush_color}
+                            shownext={this.props.shownextCoolantFlush}
+                        />
                     </div>
                 ) : (
                     <h2 className="text-center m-auto">Select a Vehicle</h2>

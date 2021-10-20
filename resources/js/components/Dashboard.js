@@ -54,6 +54,7 @@ export default class Dashboard extends Component {
             brake_fluid_color: "",
             brake_pad_front_color: "",
             brake_rotor_front_color: "",
+            coolant_flush_color:"",
 
 
             green: 0,
@@ -148,6 +149,15 @@ export default class Dashboard extends Component {
                     ),
                     this.state.mileage
                 );
+                this.colorCoolantFlush(
+                    this.shownextCoolantFlush(
+                        this.state.coolant_flush,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                
             });
     }
     colorAFC(x, y) {
@@ -170,7 +180,7 @@ export default class Dashboard extends Component {
         let j = parseInt(y);
 
         if (!x && j > 15000) {
-            return parseInt(j) - 500;
+            return j;
         } else if (!x && j < 15000) {
             return 15000;
         } else {
@@ -204,7 +214,7 @@ export default class Dashboard extends Component {
         let j = parseInt(y);
 
         if (!x && j > 12000) {
-            return parseInt(j) - 500;
+            return j;
         } else if (!x && j < 12000) {
             return 12000;
         } else {
@@ -231,7 +241,7 @@ export default class Dashboard extends Component {
         let j = parseInt(y);
 
         if (!x && j > i * 4) {
-            return parseInt(j) - 500;
+            return j;
         } else if (!x && j <= i * 4) {
             return i * 4;
         } else {
@@ -265,7 +275,7 @@ export default class Dashboard extends Component {
         let j = parseInt(y);
 
         if (!x && j > 35000) {
-            return parseInt(j) - 500;
+            return j;
         } else if (!x && j < 35000) {
             return 35000;
         } else {
@@ -299,7 +309,7 @@ export default class Dashboard extends Component {
 
         if (!x && j > i * 3) {
             //(parseInt(j) - 500);
-            return parseInt(j) - 500;
+            return j;
         } else if (!x && j <= i * 3) {
             //(i * 2);
 
@@ -336,13 +346,48 @@ export default class Dashboard extends Component {
         let j = parseInt(y);
 
         if (!x && j > 70000) {
-            return parseInt(j) - 500;
+            return j;
         } else if (!x && j < 75000) {
             return 75000;
         } else {
             return x + 70000;
         }
     }
+    colorCoolantFlush(x, y) {
+        if (x > y - 1000 && y > x) {
+            console.log(x, y);
+
+            this.setState({
+                coolant_flush_color: "bg-yellow-500",
+            });
+        } else if (x > y) {
+            console.log(x, y);
+
+            this.setState({
+                coolant_flush_color: "bg-green-500",
+            });
+        } else {
+             console.log(x, y);
+            this.setState({
+           
+
+                coolant_flush_color: "bg-red-500",
+            });
+        }
+    }
+
+    shownextCoolantFlush(x, y, i) {
+        let j = parseInt(y);
+
+        if (!x && j > 30000) {
+            return j;
+        } else if (!x && j < 30000) {
+            return 30000;
+        } else {
+            return x + 30000;
+        }
+    }
+    
     
 
     handleChange(car) {
@@ -433,6 +478,14 @@ export default class Dashboard extends Component {
                 this.colorBrakeRotorFront(
                     this.shownextBrakeRotorFront(
                         this.state.brake_rotors_front,
+                        this.state.mileage,
+                        this.state.yearly_mileage
+                    ),
+                    this.state.mileage
+                );
+                this.colorCoolantFlush(
+                    this.shownextCoolantFlush(
+                        this.state.coolant_flush,
                         this.state.mileage,
                         this.state.yearly_mileage
                     ),
@@ -1056,6 +1109,18 @@ export default class Dashboard extends Component {
                                             )}
                                             brake_rotor_front_color={
                                                 this.state.brake_rotor_front_color
+                                            }
+                                            //coolant
+                                            coolant_flush={
+                                                this.state.coolant_flush
+                                            }
+                                            shownextCoolantFlush={this.shownextCoolantFlush(
+                                                this.state.coolant_flush,
+                                                this.state.mileage,
+                                                this.state.yearly_mileage
+                                            )}
+                                            coolant_flush_color={
+                                                this.state.coolant_flush_color
                                             }
                                         />
                                     </div>
