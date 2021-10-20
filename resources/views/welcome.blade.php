@@ -59,13 +59,14 @@ h1 {
 	overflow: hidden;
 	background: url('/assets/cartracker.png') no-repeat center
 		center/cover;
+		z-index: 5;
 }
 .content {
-	z-index: 2;
+	z-index: 10;
 }
 
 .video-container video {
-	min-width: 100%;
+	max-width: 100%;
 	min-height: 100%;
   position: absolute;
 	top: 50%;
@@ -75,7 +76,7 @@ h1 {
 }
 .video-container:after {
 	content: '';
-	z-index: 1;
+	z-index: 7;
 	height: 100%;
 	width: 100%;
 	top: 0;
