@@ -47,14 +47,14 @@ h1 {
 	justify-content: center;
 	text-align: center;
 	color: #fff;
-	padding: 0 20px;
+	/* padding: 0 20px; */
     overflow: hidden;
 }
         
 .video-container {
-	position: absolute;
-	/* top: 0; */
-	/* left: 0; */
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
