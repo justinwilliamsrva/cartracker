@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.21](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.20...v0.3.21) (2021-10-20)
+
+
+### Features
+
+* added coolant to maintenace ([cef465b](https://github.com/justinwilliamsrva/cartracker/commit/cef465b6b8e5262541e1fd0372907c96f2d799d6))
+
 ### [0.3.20](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.19...v0.3.20) (2021-10-20)
 
 ### [0.3.19](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.18...v0.3.19) (2021-10-19)
