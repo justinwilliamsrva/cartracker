@@ -96,34 +96,12 @@ export default class Dashboard extends Component {
         e.preventDefault();
         axios
             .put(`/cars/${this.state.id}`, {
-                mileage: this.state.mileage,
+                mileage: this.state.mileage
             })
             .then(() => {
-                this.getCars();
-                this.colorAFC(
-                    this.showNextAFC(
-                        this.state.air_filter_cabin,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
-                this.colorAFE(
-                    this.showNextAFE(
-                        this.state.air_filter_engine,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
-                this.colorBAT(
-                    this.showNextBAT(
-                        this.state.battery,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
+                this.setState({green:0,yellow:0,red:0})
+                // this.getCars();
+            //   this.runcolors();
                 this.colorBrakeFluid(
                     this.shownextBrakeFluid(
                         this.state.brake_fluid,
@@ -158,20 +136,42 @@ export default class Dashboard extends Component {
                 );
             });
     }
+    
     colorAFC(x, y) {
+
+        let redder=0;
+        let yellower=0;
+        let greener=0;
         if (x > y - 1000 && y > x) {
+            yellower++;
             this.setState({
                 afc_color: "bg-yellow-500",
+                yellow: yellower,
             });
         } else if (x > y) {
+            greener++;
             this.setState({
                 afc_color: "bg-green-500",
+                green: greener,
             });
         } else {
+         
+redder++;
             this.setState({
                 afc_color: "bg-red-500",
+                red: redder,
             });
+            
         }
+       
+        this.colorAFE(
+            this.showNextAFE(
+                this.state.air_filter_engine,
+                this.state.mileage,
+                this.state.yearly_mileage
+            ),
+            this.state.mileage,redder,yellower,greener
+        );
     }
 
     showNextAFC(x, y) {
@@ -186,26 +186,38 @@ export default class Dashboard extends Component {
         }
     }
 
-    colorAFE(x, y) {
+    colorAFE(x, y,r,ye,g) {
         if (x > y - 1000 && y > x) {
-            console.log(x, y);
-
+           
+ye++;
             this.setState({
                 afe_color: "bg-yellow-500",
+                yellow: ye,
             });
         } else if (x > y) {
-            console.log(x, y);
-
+          
+g++
             this.setState({
                 afe_color: "bg-green-500",
+                green: g,
             });
         } else {
-            console.log(x, y);
+            console.log("second" + this.state.red);
+          r++;
 
             this.setState({
                 afe_color: "bg-red-500",
+                red:r,
             });
         }
+        this.colorBAT(
+            this.showNextBAT(
+                this.state.battery,
+                this.state.mileage,
+                this.state.yearly_mileage
+            ),
+            this.state.mileage,r,ye,g
+        );
     }
 
     showNextAFE(x, y) {
@@ -220,18 +232,25 @@ export default class Dashboard extends Component {
         }
     }
 
-    colorBAT(x, y) {
+    colorBAT(x, y,r,ye,g) {
         if (x > y - 1000 && y > x) {
+            ye++;
             this.setState({
                 battery_color: "bg-yellow-500",
+                yellow:ye,
             });
         } else if (x > y) {
+            g++;
             this.setState({
                 battery_color: "bg-green-500",
+                green:g,
+
             });
         } else {
+            r++;
             this.setState({
                 battery_color: "bg-red-500",
+                red: r,
             });
         }
     }
@@ -381,6 +400,17 @@ export default class Dashboard extends Component {
         }
     }
 
+    runcolors() {
+        this.colorAFC(
+            this.showNextAFC(
+                this.state.air_filter_cabin,
+                this.state.mileage,
+                this.state.yearly_mileage
+            ),
+            this.state.mileage
+        );
+    }
+
     handleChange(car) {
         // console.log(this.state.air_filter_cabin, this.state.mileage);
 
@@ -423,33 +453,14 @@ export default class Dashboard extends Component {
                 tires_rear_driver: car.tires_rear_driver,
                 tires_rear_passenger: car.tires_rear_passenger,
                 windshield_wipers: car.windshield_wipers,
+                green: 0,
+                yellow: 0,
+                red: 0,
             },
             () => {
                 // this.showNexvar;
-                this.colorAFC(
-                    this.showNextAFC(
-                        this.state.air_filter_cabin,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
-                this.colorAFE(
-                    this.showNextAFE(
-                        this.state.air_filter_engine,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
-                this.colorBAT(
-                    this.showNextBAT(
-                        this.state.battery,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
+                this.runcolors();
+              
                 this.colorBrakePadFront(
                     this.shownextBrakePadFront(
                         this.state.brake_pads_front,
@@ -980,7 +991,7 @@ export default class Dashboard extends Component {
                         </div>
 
                         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mt-3">
-                            {/* <div className=" md:col-span-1 lg:col-span-1">
+                            <div className=" md:col-span-1 lg:col-span-1">
                                 <div className="card shadow-md ">
                                     <div className="card-header">
                                         <h2>Status</h2>
@@ -1026,8 +1037,8 @@ export default class Dashboard extends Component {
                                         )}
                                     </div>
                                 </div>
-                            </div> */}
-                            <div className="md:col-span-1 lg:col-span-3 ">
+                            </div>
+                            <div className="md:col-span-1 lg:col-span-2 ">
                                 <div className="card shadow-md  ">
                                     <div className="card-header ">
                                         <h2>
