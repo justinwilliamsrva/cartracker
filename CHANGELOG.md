@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.28](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.27...v0.3.28) (2021-10-24)
+
+
+### Features
+
+* color change worksish ([88d7689](https://github.com/justinwilliamsrva/cartracker/commit/88d7689654a868a4d2a8e8063b9f6daeea30e59d))
+
 ### [0.3.27](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.26...v0.3.27) (2021-10-20)
 
 ### [0.3.26](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.25...v0.3.26) (2021-10-20)
