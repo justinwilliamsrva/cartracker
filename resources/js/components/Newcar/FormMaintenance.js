@@ -195,7 +195,7 @@ export default class FormMaintenance extends Component {
                     <input
                         name="brake_rotors_back"
                         onChange={this.props.handleChange}
-                        value={this.props.brake_rotors_back}
+                        value={this.props.brake_rotors_rear}
                         type="number"
                         className="form-control"
                         // id="exampleFormControlInput1"
