@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.30](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.29...v0.3.30) (2021-10-27)
+
 ### [0.3.29](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.28...v0.3.29) (2021-10-27)
 
 
