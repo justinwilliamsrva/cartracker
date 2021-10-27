@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.29](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.28...v0.3.29) (2021-10-27)
+
+
+### Bug Fixes
+
+* changed spellgin error on brake rotors rear ([465ec64](https://github.com/justinwilliamsrva/cartracker/commit/465ec64339fd1b3f10f11091769bfb4f33a77cb0))
+
 ### [0.3.28](https://github.com/justinwilliamsrva/cartracker/compare/v0.3.27...v0.3.28) (2021-10-24)
 
 
