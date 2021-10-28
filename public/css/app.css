@@ -41905,6 +41905,38 @@ a {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+#vehicle-info-tables table {
+  margin: 0.25rem;
+}
+
+@media only screen and (min-width: 1024px) and (min-height: 925px) {
+  .maintenance {
+    /* border: solid red 5px; */
+    height: 30vh;
+    overflow-y: scroll;
+  }
+
+  .maintenances {
+    /* border: solid red 5px; */
+    height: 30vh;
+    /* overflow-y: scroll; */
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-height: 925px) {
+  .maintenance {
+    /* border: solid red 5px; */
+    height: 40vh;
+    overflow-y: scroll;
+  }
+
+  .maintenances {
+    /* border: solid red 5px; */
+    height: 40vh;
+    /* overflow-y: scroll; */
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -198039,5 +198071,4 @@ a {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-
 

@@ -1,10 +1,7 @@
-import AirFilterCabin from "./MaintenanceItems/AirFilterCabin";
-import AirFilterEngine from "./MaintenanceItems/AirFilterEngine";
-import Battery from "./MaintenanceItems/Battery";
-import BrakeFluid from "./MaintenanceItems/BrakeFluid";
+
 
 import React, { Component } from "react";
-import MaintenanceItem from "./MaintenanceItems/MaintenanceItem";
+import MaintenanceItem from "./MaintenanceItem";
 
 export default class Maintenance extends Component {
     render() {

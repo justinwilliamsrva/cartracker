@@ -102,14 +102,7 @@ export default class Dashboard extends Component {
                 this.setState({green:0,yellow:0,red:0})
                 // this.getCars();
             //   this.runcolors();
-                this.colorBrakeFluid(
-                    this.shownextBrakeFluid(
-                        this.state.brake_fluid,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
+              
                 this.colorBrakePadFront(
                     this.shownextBrakePadFront(
                         this.state.brake_pads_front,
@@ -253,6 +246,18 @@ g++
                 red: r,
             });
         }
+        this.colorBrakeFluid(
+            this.shownextBrakeFluid(
+                this.state.brake_fluid,
+                this.state.mileage,
+                this.state.yearly_mileage
+            ),
+            this.state.mileage,r,ye,g
+        );
+
+
+
+
     }
     showNextBAT(x, y, i) {
         let j = parseInt(y);
@@ -265,59 +270,39 @@ g++
             return i * 4 + x;
         }
     }
-    colorBrakePadFront(x, y) {
+    colorBrakeFluid(x, y,r,ye,g) {
         if (x > y - 1000 && y > x) {
-            // console.log(x, y);
-
-            this.setState({
-                brake_pad_front_color: "bg-yellow-500",
-            });
-        } else if (x > y) {
-            // console.log(x, y);
-
-            this.setState({
-                brake_pad_front_color: "bg-green-500",
-            });
-        } else {
-            //  console.log(x, y);
-            this.setState({
-                brake_pad_front_color: "bg-red-500",
-            });
-        }
-    }
-
-    shownextBrakePadFront(x, y, i) {
-        let j = parseInt(y);
-
-        if (!x && j > 35000) {
-            return j;
-        } else if (!x && j < 35000) {
-            return 35000;
-        } else {
-            return x + 35000;
-        }
-    }
-
-    colorBrakeFluid(x, y) {
-        if (x > y - 1000 && y > x) {
-            // console.log(x, y);
-            //(1);
+          ye++;
             this.setState({
                 brake_fluid_color: "bg-yellow-500",
+                yellow: ye,
+
             });
         } else if (x > y) {
-            // console.log(x, y);
+          g++;
 
             this.setState({
                 brake_fluid_color: "bg-green-500",
+                green: g,
+
             });
         } else {
-            // console.log(x, y);
-
+           
+r++
             this.setState({
                 brake_fluid_color: "bg-red-500",
+                red: r,
+
             });
         }
+        this.colorBrakePadFront(
+            this.shownextBrakePadFront(
+                this.state.brake_pads_front,
+                this.state.mileage,
+                this.state.yearly_mileage
+            ),
+            this.state.mileage,r,ye,g
+        );
     }
     shownextBrakeFluid(x, y, i) {
         let j = parseInt(y);
@@ -335,25 +320,88 @@ g++
             return i * 3 + x;
         }
     }
-    colorBrakeRotorFront(x, y) {
+
+
+
+    colorBrakePadFront(x, y,r,ye,g) {
         if (x > y - 1000 && y > x) {
-            console.log(x, y);
+           ye++
 
             this.setState({
-                brake_rotor_front_color: "bg-yellow-500",
+                brake_pad_front_color: "bg-yellow-500",
+                yellow:ye
             });
         } else if (x > y) {
-            console.log(x, y);
+          
+g++
+            this.setState({
+                brake_pad_front_color: "bg-green-500",
+                green:g
+            });
+        } else {
+          
+            r++
+            this.setState({
+                brake_fluid_color: "bg-red-500",
+                red: r,
+
+            });
+        }
+
+        this.colorBrakeRotorFront(
+            this.shownextBrakeRotorFront(
+                this.state.brake_rotors_front,
+                this.state.mileage,
+                this.state.yearly_mileage
+            ),
+            this.state.mileage,r,ye,g
+        );
+    }
+
+    shownextBrakePadFront(x, y, i) {
+        let j = parseInt(y);
+
+        if (!x && j > 35000) {
+            return j;
+        } else if (!x && j < 35000) {
+            return 35000;
+        } else {
+            return x + 35000;
+        }
+    }
+
+  
+    colorBrakeRotorFront(x, y,r,ye,g) {
+        if (x > y - 1000 && y > x) {
+       
+ye++
+            this.setState({
+                brake_rotor_front_color: "bg-yellow-500",
+                yellow:y
+            });
+        } else if (x > y) {
+          g++
 
             this.setState({
                 brake_rotor_front_color: "bg-green-500",
+                green:g
+
             });
         } else {
-            console.log(x, y);
+           r++
             this.setState({
                 brake_rotor_front_color: "bg-red-500",
+                red:r
             });
         }
+        this.colorCoolantFlush(
+            this.shownextCoolantFlush(
+                this.state.coolant_flush,
+                this.state.mileage,
+                this.state.yearly_mileage
+            ),
+            this.state.mileage,r,ye,g
+        );
     }
 
     shownextBrakeRotorFront(x, y, i) {
@@ -367,23 +415,24 @@ g++
             return x + 70000;
         }
     }
-    colorCoolantFlush(x, y) {
+    colorCoolantFlush(x, y,r,ye,g) {
         if (x > y - 1000 && y > x) {
-            console.log(x, y);
-
+ye++
             this.setState({
                 coolant_flush_color: "bg-yellow-500",
+                yellow:ye
             });
         } else if (x > y) {
-            console.log(x, y);
-
+g++
             this.setState({
                 coolant_flush_color: "bg-green-500",
+                green:g
             });
         } else {
-            console.log(x, y);
+            r++
             this.setState({
                 coolant_flush_color: "bg-red-500",
+                red:r
             });
         }
     }
@@ -461,38 +510,10 @@ g++
                 // this.showNexvar;
                 this.runcolors();
               
-                this.colorBrakePadFront(
-                    this.shownextBrakePadFront(
-                        this.state.brake_pads_front,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
-                this.colorBrakeFluid(
-                    this.shownextBrakeFluid(
-                        this.state.brake_fluid,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
-                this.colorBrakeRotorFront(
-                    this.shownextBrakeRotorFront(
-                        this.state.brake_rotors_front,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
-                this.colorCoolantFlush(
-                    this.shownextCoolantFlush(
-                        this.state.coolant_flush,
-                        this.state.mileage,
-                        this.state.yearly_mileage
-                    ),
-                    this.state.mileage
-                );
+            
+          
+               
+              
             }
         );
     }
@@ -654,7 +675,7 @@ g++
                                             </div>
                                         </h2>
                                     </div>
-                                    <div className="card-body maintenances">
+                                    <div className="card-body maintenance">
                                         {this.state.id ? (
                                             <div
                                                 id="vehicle-info-tables"
@@ -1053,7 +1074,7 @@ g++
                                             </div>
                                         </h2>
                                     </div>
-                                    <div className="p-2">
+                                  
                                         <Maintenance
                                             mileage={this.state.mileage}
                                             yearly_mileage={
@@ -1136,7 +1157,7 @@ g++
                                                 this.state.coolant_flush_color
                                             }
                                         />
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
