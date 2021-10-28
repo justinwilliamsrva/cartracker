@@ -55,6 +55,7 @@ export default class Dashboard extends Component {
             brake_pad_front_color: "",
             brake_rotor_front_color: "",
             coolant_flush_color: "",
+            dif_fluid_color: "",
 
             green: 0,
             yellow: 0,
@@ -100,8 +101,8 @@ export default class Dashboard extends Component {
             })
             .then(() => {
                 this.setState({green:0,yellow:0,red:0})
-                // this.getCars();
-            //   this.runcolors();
+                this.getCars();
+              this.runcolors();
               
                 this.colorBrakePadFront(
                     this.shownextBrakePadFront(
@@ -195,7 +196,7 @@ g++
                 green: g,
             });
         } else {
-            console.log("second" + this.state.red);
+            // console.log("second" + this.state.red);
           r++;
 
             this.setState({
@@ -435,17 +436,63 @@ g++
                 red:r
             });
         }
+        this.colorDiffFluid(
+            this.shownextDiffFluid(
+                this.state.dif_fluid,
+                this.state.mileage,
+                this.state.yearly_mileage
+            ),
+            this.state.mileage,r,ye,g
+        );
     }
 
     shownextCoolantFlush(x, y, i) {
         let j = parseInt(y);
-
         if (!x && j > 30000) {
             return j;
         } else if (!x && j < 30000) {
             return 30000;
         } else {
             return x + 30000;
+        }
+    }
+    colorDiffFluid(x, y,r,ye,g) {
+        if (x > y - 1000 && y > x) {
+console.log(x,y);
+
+ye++
+            this.setState({
+                coolant_flush_color: "bg-yellow-500",
+                yellow:ye
+            });
+        } else if (x > y) {
+console.log(x,y);
+
+g++
+            this.setState({
+                coolant_flush_color: "bg-green-500",
+                green:g
+            });
+        } else {
+console.log(x,y);
+
+            r++
+            this.setState({
+                coolant_flush_color: "bg-red-500",
+                red:r
+            });
+        }
+    }
+
+    shownextDiffFluid(x, y, i) {
+        let j = parseInt(y);
+
+        if (!x && j > 90000) {
+            return j;
+        } else if (!x && j < 90000) {
+            return 90000;
+        } else {
+            return x + 90000;
         }
     }
 
@@ -1156,6 +1203,19 @@ g++
                                             coolant_flush_color={
                                                 this.state.coolant_flush_color
                                             }
+                                            // diff
+                                            dif_fluid={
+                                                this.state.dif_fluid
+                                            }
+                                            shownextDiffFluid={this.shownextDiffFluid(
+                                                this.state.dif_fluid,
+                                                this.state.mileage,
+                                                this.state.yearly_mileage
+                                            )}
+                                            dif_fluid_color={
+                                                this.state.dif_fluid_color
+                                            }
+                                            drivetrain={this.state.drivetrain}
                                         />
                                    
                                 </div>
